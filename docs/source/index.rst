@@ -52,3 +52,8 @@ Here are defined some principles you will find during the particular topics on t
     SWSCNO
         Some web server configuration needed **from performance** perspective, with partial support.
 
+    NEXT_MINOR_RELEASE
+        The referred item is part of next minor release plan.
+
+    NEXT_MAJOR_RELEASE
+        The referred item is part of next major release plan.
