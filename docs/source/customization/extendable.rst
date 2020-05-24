@@ -1,6 +1,4 @@
-*************
-CUSTOMIZATION
-*************
+
 
 
 .. include:: ./../messages.rst
