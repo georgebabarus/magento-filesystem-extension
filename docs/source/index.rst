@@ -26,7 +26,6 @@ Once you have base module installed and configured you can configure already dev
 
 .. toctree::
     :maxdepth: 2
-    :caption: Customization
 
     customization/extendable
 
