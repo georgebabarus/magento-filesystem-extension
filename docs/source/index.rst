@@ -10,25 +10,23 @@ Once you have base module installed and configured you can configure already dev
 
 
 .. toctree::
-   :caption: General
-   :maxdepth: 2
+   :caption: Extension specification
 
    introduction
-   installing
-   configuration
-   demo
+   extension/architecture
+   extension/installation
+   extension/configuration
+   extension/demo
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Architecture
+    :caption: Magento Amazon S3 integration
 
-    architecture/architecture
+    amazon-s3/integration
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Customization
+    :caption: Custom development
 
-    customization/extendable
+    custom-development/extensibility
 
 .. toctree::
    :caption: Changelog and planning

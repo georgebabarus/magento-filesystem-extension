@@ -24,7 +24,7 @@ Uploading files form user interfaces or programmatically at product should be co
 
 Nevertheless the business logic is not changed, and cloud storage services are added using regular/local filesystem interface.
 
-.. image:: _static/upload-image.jpg
+.. image:: _static/architecture/upload-image.png
   :alt: Upload image for product or CMS blocks
 
 .. note::
@@ -44,7 +44,7 @@ The proxy can be implemented as follow:
 * nginx config to request it from storage system and create a fallback request in case of error on Magento resize script
 * in case you don't have access to a web server proxy configuration there is a option to return it directly from default Magento image resize script.
 
-.. image:: _static/frontend-image-delivery.jpg
+.. image:: _static/architecture/frontend-image-delivery.png
   :alt: Upload image for product or CMS blocks
 
 .. note::

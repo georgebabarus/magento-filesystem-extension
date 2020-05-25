@@ -7,7 +7,9 @@ import re
 __version__ = '0.0.1'
 if not 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.path.abspath('..'))
-sys.path.append(os.path.abspath('./customization/'))
+sys.path.append(os.path.abspath('custom-development/'))
+sys.path.append(os.path.abspath('amazon-s3/'))
+sys.path.append(os.path.abspath('extension/'))
 
 from sphinx.locale import _
 import recommonmark

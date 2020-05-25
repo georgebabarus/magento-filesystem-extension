@@ -1,5 +1,5 @@
 *************
-CUSTOMIZATION
+Extensibility
 *************
 
 
@@ -9,7 +9,10 @@ CUSTOMIZATION
 Extend filesystem to achieve more from shop
 ===========================================
 
+Extend
+
 Built with extensibility in mind
 --------------------------------
 
+Extend
 
