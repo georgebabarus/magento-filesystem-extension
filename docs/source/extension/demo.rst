@@ -2,7 +2,7 @@
 Demo
 ************
 
-.. include:: messages.rst
+.. include:: ./../messages.rst
 .. contents:: Table of Contents
 
 Backend
