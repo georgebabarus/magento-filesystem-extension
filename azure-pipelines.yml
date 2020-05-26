@@ -29,3 +29,6 @@ steps:
 #    pytest
 #  displayName: 'pytest'
 
+- script: |
+    cd docs
+    make html
