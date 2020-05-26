@@ -36,7 +36,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/docs/build/html'
+    SourceFolder: '$(Build.SourcesDirectory)/docs/build'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
@@ -45,14 +45,28 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/html'
     ArtifactName: 'html'
     publishLocation: 'Container'
   displayName: 'Publish html artifacts'
 
+- script: |
+    python ./docs/source/generate-htaccess.py $(Build.BuildId) $(BUILD_URL)
+  displayName: 'Generate htaccess'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/docs/build/.htaccess'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/.htaccess'
+    CleanTargetFolder: true
+    OverWrite: true
+  displayName: 'Copy .htaccess file'
+
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/.htaccess'
     ArtifactName: 'htaccess'
     publishLocation: 'Container'
   displayName: 'Publish htaccess artifact'
