@@ -1,0 +1,6 @@
+sphinx
+sphinxcontrib-httpdomain
+sphinx_rtd_theme
+recommonmark
+sphinxcontrib-images
+sphinx_sitemap

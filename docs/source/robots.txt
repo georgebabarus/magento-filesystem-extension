@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /en/embed-unresolver/ # Hidden version
+
+Sitemap: https://magento-filesystem-extension-docs.readthedocs.io/en/latest/sitemap.xml
