@@ -50,8 +50,18 @@ steps:
     publishLocation: 'Container'
   displayName: 'Publish html artifacts'
 
-- script: |
-    python ./docs/source/generate-htaccess.py $(Build.BuildId) $(BUILD_URL)
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
+      echo $BUILD_URL
+      echo $(Build.BuildId)
+
+    workingDirectory: '$(Build.SourcesDirectory)'
+    failOnStderr: true
   displayName: 'Generate htaccess'
 
 - task: CopyFiles@2
