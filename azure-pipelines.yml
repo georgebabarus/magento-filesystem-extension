@@ -72,8 +72,6 @@ steps:
     
       echo "Create htaccess file for $BUILD_URL, $(Build.BuildId), $(Build.BuildNumber)"
       
-      BUILD_URL="$BUILD_URL"
-
       cp "$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
       sed -i 's/_BUILD_ID_/$(Build.BuildNumber)/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
       sed -i 's|_BUILD_URL_|$BUILD_URL|g' "$(Build.ArtifactStagingDirectory)/.htaccess"
