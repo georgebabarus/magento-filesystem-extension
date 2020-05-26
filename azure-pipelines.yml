@@ -54,8 +54,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |     
-      echo "Create htaccess file for $BUILD_URL"
       BUILD_ID=$(Build.BuildId)
+      
+      echo "Create htaccess file for $BUILD_URL and $BUILD_ID"
 
       cp "$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
       sed -i "s/_BUILD_ID_/${BUILD_ID}/g" "$(Build.ArtifactStagingDirectory)/.htaccess"
