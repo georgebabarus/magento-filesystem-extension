@@ -36,7 +36,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/build/html'
+    SourceFolder: '$(Build.SourcesDirectory)/docs/build/html'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
