@@ -53,25 +53,15 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: |
-      # Write your commands here
+    script: |     
+      echo "Create htaccess file for $BUILD_URL"
       
-      echo 'Hello world'
-      echo $BUILD_URL
-      echo $(Build.BuildId)
-
+      cp "$(Build.SourcesDirectory)/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
+      sed -i 's/_BUILD_ID_/$(Build.BuildId)/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
+      sed -i 's/_BUILD_URL_/$BUILD_URL/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
     workingDirectory: '$(Build.SourcesDirectory)'
     failOnStderr: true
   displayName: 'Generate htaccess'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/docs/build/.htaccess'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/.htaccess'
-    CleanTargetFolder: true
-    OverWrite: true
-  displayName: 'Copy .htaccess file'
 
 
 - task: PublishBuildArtifacts@1
