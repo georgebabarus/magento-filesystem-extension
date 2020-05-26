@@ -10,7 +10,7 @@ Software dependencies
 =====================
 
 Magento Modules
-_______________
+---------------
 
 * Magento\Catalog
 * Magento\Cms
