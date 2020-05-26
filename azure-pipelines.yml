@@ -50,3 +50,9 @@ steps:
     publishLocation: 'Container'
   displayName: 'Publish html artifacts'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template'
+    ArtifactName: 'htaccess'
+    publishLocation: 'Container'
+  displayName: 'Publish htaccess artifact'
