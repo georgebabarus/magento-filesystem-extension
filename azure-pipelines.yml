@@ -56,7 +56,7 @@ steps:
     script: |     
       echo "Create htaccess file for $BUILD_URL"
       
-      cp "$(Build.SourcesDirectory)/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
+      cp "$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
       sed -i 's/_BUILD_ID_/$(Build.BuildId)/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
       sed -i 's/_BUILD_URL_/$BUILD_URL/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
     workingDirectory: '$(Build.SourcesDirectory)'
