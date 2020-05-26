@@ -32,3 +32,11 @@ steps:
 - script: |
     cd docs
     make html
+  displayName: 'Make html'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'html'
+    publishLocation: 'Container'
+  displayName: 'Publish html artifacts'
