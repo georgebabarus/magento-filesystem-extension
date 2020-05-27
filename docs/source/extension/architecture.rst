@@ -65,7 +65,21 @@ Infrastructure architecture
 Ideal infrastructure setup
 --------------------------
 
+.. warning::
+    For now all images within the media folder are saved in the same bucket. Having multiple buckets will allow user to use this extension for downloadable products :term:`future work`
+
+.. image:: _static/architecture/basic-infrastructure-architecture.png
+  :alt: Basic infrastructure architecture
+
+
 Possible optimization
 ---------------------
+
+.. warning::
+    This is :term:`future work` and will be detailed soon.
+
+.. image:: _static/architecture/infrastructure-architecture-improved.png
+  :alt: Infrastructure architecture improved
+
 
 

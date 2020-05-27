@@ -8,7 +8,9 @@ Introduction
 Latest releases
 ===============
 
-* V-0.2.2 - Alpha version
+.. note::
+
+    This extension is currently under development.
 
 
 Use cases

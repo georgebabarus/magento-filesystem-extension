@@ -45,8 +45,8 @@ Installation process
     {
         "...",
         "require": {
-            "bb/mage-file-storage": "dev-mvp",
-            "bb/mage-file-storage-s3": "dev-mvp"
+            "bb/mage-file-storage": "1.x",
+            "bb/mage-file-storage-s3": "1.x"
         },
         "..."
     }
@@ -58,6 +58,4 @@ Installation process
     bin/magento setup:upgrade
 
 
-Assistance and support
-=======================
 
