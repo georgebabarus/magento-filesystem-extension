@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /
+
+AuthType Basic
+AuthName "Temporary restricted area"
+AuthUserFile .htpasswd
+require valid-user
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ _BUILD_URL_/$1 [R,L]
+
+RewriteRule ^(/*)$ /_BUILD_ID_/index.html [L]
+RewriteRule ^/(.*)$ /_BUILD_ID_/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_URI} ^/_BUILD_ID_/ [NC]
+RewriteRule ^ - [L]
+
+RewriteCond %{DOCUMENT_ROOT}/_BUILD_ID_/$1 -f
+RewriteRule ^(.*)$ _BUILD_ID_/$1 [L]
+
+RewriteRule ^ index.php [L,QSA]

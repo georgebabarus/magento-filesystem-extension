@@ -1,0 +1,88 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python27:
+      python.version: '2.7'
+
+steps:
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |     
+      echo 's/_BUILD_ID_/$(Build.BuildId)/g'
+      echo "s/_BUILD_ID_/$(Build.BuildId)/g"
+      echo 's/_BUILD_URL_/${BUILD_URL}/g'
+      echo "s/_BUILD_URL_/${BUILD_URL}/g"
+    workingDirectory: '$(Build.SourcesDirectory)'
+    failOnStderr: true
+  displayName: 'Generate htaccess'
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r ./docs/source/requirements.txt
+  displayName: 'Install dependencies'
+
+#- script: |
+#    pip install pytest pytest-azurepipelines
+#    pytest
+#  displayName: 'pytest'
+
+- script: |
+    cd docs
+    make html
+  displayName: 'Make html'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/docs/build'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+  displayName: 'Copy built files'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/html'
+    ArtifactName: 'html'
+    publishLocation: 'Container'
+  displayName: 'Publish html artifacts'
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |     
+    
+      echo "Create htaccess file for $BUILD_URL, $(Build.BuildId), $(Build.BuildNumber)"
+      
+      cp "$(Build.SourcesDirectory)/docs/source/_templates/htaccess-template" "$(Build.ArtifactStagingDirectory)/.htaccess"
+      sed -i 's/_BUILD_ID_/$(Build.BuildNumber)/g' "$(Build.ArtifactStagingDirectory)/.htaccess"
+      sed -i "s|_BUILD_URL_|$BUILD_URL|g" "$(Build.ArtifactStagingDirectory)/.htaccess"
+    workingDirectory: '$(Build.SourcesDirectory)'
+    failOnStderr: true
+  displayName: 'Generate htaccess'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/.htaccess'
+    ArtifactName: 'htaccess'
+    publishLocation: 'Container'
+  displayName: 'Publish htaccess artifact'
