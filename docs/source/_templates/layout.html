@@ -1,0 +1,22 @@
+{% extends "!layout.html" %}
+
+
+{% block extrahead %}
+    {{ super() }}
+    <meta name="google-site-verification" content="HFkKCMbj7JNJkz8cCQcdI-1wvQzt9G5yxqEGKhT9dW0" />
+{% endblock %}
+
+{%- block footer %}
+    {{ super() }}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54395432-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-54395432-3');
+    </script>
+
+{% endblock %}
