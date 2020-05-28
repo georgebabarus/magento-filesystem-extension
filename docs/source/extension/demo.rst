@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        File Storage Demo of Amazon S3 storage integration into Magento 2.
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, demo, integration, amazon s3, azure file storage, blob storage
+
 ************
 Demo
 ************

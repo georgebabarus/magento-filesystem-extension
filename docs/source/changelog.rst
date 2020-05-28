@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Magento 2 cloud storage integration extension changelog and releases
+
+.. meta::
+    :keywords lang=en:
+        file storage service, release, changelog
+
 *********
 Changelog
 *********

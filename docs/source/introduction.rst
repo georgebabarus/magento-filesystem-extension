@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Basic and advance setup of cloud storage services for Magento for media files.
+
+.. meta::
+    :keywords lang=en:
+        file storage service, cloud, integration, setup, configuration, magento
+
 ************
 Introduction
 ************
