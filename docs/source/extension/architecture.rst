@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Magento 2 File Storage Architecture abstraction for better file storage integration interface: more extensible and reusable.
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, architecture, extension, abstraction
+
 ****************
 Architecture
 ****************

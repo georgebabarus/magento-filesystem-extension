@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Future planning for Magento 2 cloud file storage service integration extension.
+
+.. meta::
+    :keywords lang=en:
+        magento 2, roadmap, planning, file storage service, cloud, integration
+
 *********
 Roadmap
 *********
