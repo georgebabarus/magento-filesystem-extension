@@ -48,6 +48,11 @@ Once you have base module installed and configured you can configure already dev
    technical/cms
 
 
+.. toctree::
+   :caption: License
+
+   license
+
 Glossary
 ========
 

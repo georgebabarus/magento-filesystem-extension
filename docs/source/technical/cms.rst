@@ -16,6 +16,8 @@ Trace & Key code classes
         \Magento\Cms\Model\Wysiwyg\Images\Storage\Collection
         \Bb\Storage\Model\Cms\Wysiwyg\Images\Storage\Collection::_collectRecursive
 
+    \Magento\Cms\Helper\Wysiwyg\Images
+
 
 
 Local filesystem files
