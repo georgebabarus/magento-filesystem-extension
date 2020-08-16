@@ -5,4 +5,6 @@
 
     * Feel free to create new issue for feature requests, new ideas and improvements or bugs related to this extensions: `On github <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_
 
+.. error::
 
+    !!!Important: Use only one filesystem configuration for Catalog and Cms for now, since building media base url is not compatible with multiple media location. See: \Magento\Store\Model\Store::getBaseUrl
