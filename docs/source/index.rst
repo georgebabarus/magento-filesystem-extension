@@ -42,6 +42,17 @@ Once you have base module installed and configured you can configure already dev
    changelog
 
 
+.. toctree::
+   :caption: Technical documentation
+
+   technical/cms
+
+
+.. toctree::
+   :caption: License
+
+   license
+
 Glossary
 ========
 

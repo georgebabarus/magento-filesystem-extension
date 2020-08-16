@@ -10,7 +10,6 @@
 Introduction
 ************
 
-.. include:: messages.rst
 .. include:: ../README.rst
 
 Latest releases
@@ -54,9 +53,6 @@ Already using cloud other services
 
 Features
 ========
-
-.. warning::
-    Open for new ideas and improvements. Currently in phase proof of concept.
 
 Product file storage
 --------------------

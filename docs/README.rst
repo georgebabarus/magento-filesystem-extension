@@ -4,6 +4,8 @@
 Magento file (cloud) storage systems integration for media files
 =================================================================
 
+.. include:: messages.rst
+
 Storing media files involve some work when you decide to scale horizontally.
 Also having to care about disk space and disk mounting may be useless when you are already have a easy to use object storage service.
 
