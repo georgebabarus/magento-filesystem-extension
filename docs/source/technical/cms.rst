@@ -142,6 +142,7 @@ Root: media/
 Current path: media/
 
 .. code-block:: php
+
     \Magento\Framework\Filesystem\Directory\Read::read
         $files = {array} [18]
              0 = "media/.htaccess"
