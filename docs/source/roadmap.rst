@@ -1,3 +1,6 @@
+
+.. _roadmap:
+
 .. meta::
     :description lang=en:
         Future planning for Magento 2 cloud file storage service integration extension.
