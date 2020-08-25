@@ -25,6 +25,26 @@ Magento project will use Magento Storage Extension to write media files directly
 
 As long as images are uploaded, no other requests are made to the storage service, the url is generated in Magento but the resource is only served from MSS.
 
+Subscribe for news on this topic
+--------------------------------
+
+Subscribe for updates on this topic and information about release of the next Magento 2 Storage Service.
+
+Soon we will come with a beta program and you may benefit of attractive enrolment discounts.
+
+`Subscribe here <https://mailchi.mp/ef502f3af734/magento-storage-service/>`_
+
+
+
 Architecture
 ============
 
+Resized images could be delivered directly from storage system after creating the resized image in the main request or return a proxy url responsible to return the image if not exist.
+
+The proxy can be implemented as follow:
+
+* nginx config to request it from storage system and create a fallback request in case of error on Magento resize script
+* in case you don't have access to a web server proxy configuration there is a option to return it directly from default Magento image resize script.
+
+.. image:: extension/_static/architecture/frontend-image-delivery.png
+  :alt: Upload image for product or CMS blocks
