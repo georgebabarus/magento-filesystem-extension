@@ -31,6 +31,11 @@
     custom-development/extensibility
 
 .. toctree::
+    :caption: Magento Storage Service (M2SS)
+
+    media-storage-service
+
+.. toctree::
    :caption: Changelog and planning
 
    roadmap
