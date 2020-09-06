@@ -4,7 +4,7 @@
 # You can set these variables from the command line, and also
 # from the environment for the first two. venv/bin/python -msphinx
 SPHINXOPTS    ?=
-SPHINXBUILD   ?= venv/bin/python -msphinx
+SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
