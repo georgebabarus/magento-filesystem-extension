@@ -10,8 +10,6 @@
 Introduction
 ************
 
-Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem (including remote filesystems like Amazon Simple Storage Service - S3) for core or custom modules.
-
 For example:
     * storing CMS media files directly in a cloud object storage (like Amazon S3 or Azure Files) without touching server disk could be achieved with little effort :ref:`explained here <cms>`.
     * all files that are served raw could easily be served directly form there or through a built-in or third party CDN.
@@ -29,22 +27,6 @@ There are plenty of cloud static files storage services offered with various fea
 With this idea in mind you can identify a use-case for e-commerce website for storing images and video for products, categories or CMS pages and deliver them using a CDN. Or even storing private content like downloadable products.
 
 Using cloud storage should be easy to configure and use, ans should not add additional complexity to the system but on contrary.
-
-Reed the documentation https://docs.magento.asset42.com to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage systems in a platform agnostic manner.
-
-
-Latest releases
-===============
-
-.. note::
-
-    This extension is currently a active development phase, check :ref:`Project Roadmap <roadmap>` to see some ideas or ask for solution on a particular use case.
-
-    1.0.0 - proof of concept
-          - Bb_Storage could be installed independently and will allow custom/new directories for new modules
-          - To overwrite Magento storage following modules should be installed (are dependent on each-other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
-          - For now, When you create a mapping for a subdirectory, you need to create configuration for all others subdirectories
-
 
 Use cases
 =========
@@ -173,6 +155,18 @@ Multiple cloud buckets mapping for each main directory
 ------------------------------------------------------
 
 Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should be served only through application server.
+
+Latest releases
+===============
+
+.. note::
+
+    This extension is currently a active development phase, check :ref:`Project Roadmap <roadmap>` to see some ideas or ask for solution on a particular use case.
+
+    1.0.0 - proof of concept
+          - Bb_Storage could be installed independently and will allow custom/new directories for new modules
+          - To overwrite Magento storage following modules should be installed (are dependent on each-other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
+          - For now, When you create a mapping for a subdirectory, you need to create configuration for all others subdirectories
 
 
 Useful links
