@@ -6,15 +6,10 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
-Magento file storage systems integration for media files
-=========================================================
+
+.. include:: ../README.rst
 
 .. include:: messages.rst
-
-Use this Magento module to decouple files storage form compute systems and scale them independently.
-
-Once you have base module installed and configured you can configure already developed storage systems driver, or develop yourself. A driver will be basically a class implementing basic operations: read/write files or directory.
-
 
 .. toctree::
    :caption: Extension specification
@@ -34,6 +29,11 @@ Once you have base module installed and configured you can configure already dev
     :caption: Custom development
 
     custom-development/extensibility
+
+.. toctree::
+    :caption: Magento Storage Service (M2SS)
+
+    media-storage-service
 
 .. toctree::
    :caption: Changelog and planning

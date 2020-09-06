@@ -1,51 +1,63 @@
 .. role:: raw-html-m2r(raw)
    :format: html
 
-Magento file (cloud) storage systems integration for media files
-=================================================================
+Magento filesystem component extension
+======================================
 
-.. include:: messages.rst
+Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem for core or custom modules.
 
-Storing media files involve some work when you decide to scale horizontally.
-Also having to care about disk space and disk mounting may be useless when you are already have a easy to use object storage service.
+There are few touch points that are not abstracted enough as you could see in current documentation, and this storage extension covers this to allow Cloud object storage service integration into Magento 2.
+In many cases existing Database files storage could not be useful and definitively is not a optimal implementation since it is doing a sync back to local filesystem on missing resource.
 
-There are plenty of cloud static files storage services offered with various feature but most of them have same basic ideas:
+Read the `documentation <https://magento-filesystem-extension-docs.readthedocs.io>`_ to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage services in a platform agnostic manner.
 
-* allow secure upload remotely of files
-* deliver static file public or privately
-* built in Content delivery network (CDN)
+What is covered with this extensions?
+---------------------------------------
 
-With this idea in mind you can identify a use-case for e-commerce website for storing images and video for products, categories or CMS pages and deliver them using a CDN. Or even storing private content like downloadable products.
+* Decouple file storage system form compute systems and scale them independently.
+  A driver will be basically a class implementing (Magento\Framework\Filesystem\DriverInterface) basic operations: read/write files or directory.
 
-Using cloud storage should be easy to configure and use, ans should not add additional complexity to the system but on contrary.
+* Mapping of any media sub-directory to various filesystem services.
 
-Reed the documentation https://magento-filesystem-extension-docs.readthedocs.io to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage systems in a platform agnostic manner.
+    For example you can make following mapping:
+
+        * media/catalog files to a public AWS S3 bucket
+        * media/downloadable could be mapped to a private AWS S3 bucket
+        * media/captcha could be kept on disk filesystem
 
 
-Useful links
-------------
+Currently there are 6 Magento modules developed to achieve fully abstracted filesystem implementation:
 
-Read more about Object Storage services online:
+* Bb_Storage is the core module implementing most of business logic:
 
-* Amazon Simple Storage Service S3
-    https://docs.aws.amazon.com/s3/index.html
-* Azure Cloud File Storage/Blob storage
-    https://azure.microsoft.com/en-us/services/storage/blobs
-* Google Cloud Storage
-    https://cloud.google.com/storage
-* Digital Ocean Block Storage
-    https://www.digitalocean.com/products/block-storage/
-* Linode Object storage
-    https://www.linode.com/products/object-storage/
+    * directories mapping
+    * adding custom media directories for new modules
+    * use the media storage system of your choice for any given directory or subdirectory
+    * image resize in-place without sync back to local filesystem the file (this require having the same configuration for main directory and destination of resized files)
+    * this module allows only new modules to use this features, none of Magento core functionality is touched
 
-Read more about CDN:
+Bb_StorageOverwrite
 
-* Amazon CloudFront
-    https://aws.amazon.com/cloudfront/
-* Azure CDN
-    https://docs.microsoft.com/en-us/azure/cdn/
-* Akamai
-    https://www.akamai.com/
+    * allow Bb_Storage features on built-in media directories
+
+Bb_StorageCms
+
+    * configure Magento_Cms module to use Bb_Storage
+    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+
+Bb_StorageCatalog
+
+    * configure Magento_Catalog module to use Bb_Storage
+    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+
+Bb_StorageDownloadable
+
+    * Allow downloadable files to be saved in a different non-public media storage
+    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+
+Bb_StorageS3
+
+    * implementation of Amazon S3 api as a Magento filesystem driver
 
 
 Author

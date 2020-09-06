@@ -1,3 +1,5 @@
+.. _extension/architecture:
+
 .. meta::
     :description lang=en:
         Magento 2 File Storage Architecture abstraction for better file storage integration interface: more extensible and reusable.
@@ -39,7 +41,7 @@ Nevertheless the business logic is not changed, and cloud storage services are a
     Uploading products attachments for downloadable products works just like uploading the product image showed in the above schema.
 
 .. note::
-    Features: :term:`WOOB` :term:`v0.0.1`
+    Features: :term:`WOOB` :term:`v1.0.0`
 
 
 Frontend resized image delivery
@@ -56,7 +58,7 @@ The proxy can be implemented as follow:
   :alt: Upload image for product or CMS blocks
 
 .. note::
-    :term:`SWSCNO` :term:`v0.0.1`
+    :term:`SWSCNO` :term:`v1.0.0`
 
 
 Frontend image delivery for original images
@@ -65,7 +67,7 @@ Frontend image delivery for original images
 Original images could be delivered directly from storage system, or the CDN in front of it, by configuring the base media url in admin configuration under Store -> Configuration.
 
 .. note::
-    :term:`WOOB` :term:`v0.0.1`
+    :term:`WOOB` :term:`v1.0.0`
 
 Infrastructure architecture
 ============================

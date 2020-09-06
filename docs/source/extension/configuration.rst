@@ -6,6 +6,8 @@
     :keywords lang=en:
         Magento 2, configuration, cloud storage services
 
+.. _configuration:
+
 *************
 Configuration
 *************
@@ -49,6 +51,18 @@ Application configuration
             ],
         ],
     ]
+
+.. _configuration/directory_mapping:
+
+Directory mapping
+-----------------
+
+
+.. _configuration/connection:
+
+Connection configuration
+------------------------
+
 
 
 Web-server configuration
