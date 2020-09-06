@@ -42,11 +42,11 @@ Other Changes
             * Sync existing images to cloud storage
 
         New Features
-        -------------
+        ˆˆˆˆˆˆˆˆˆˆˆˆˆ
         * Media storage driver for Amazon S3
         * Magento core changes to improve filesystem abstraction
 
         Other Changes
-        --------------
+        ˆˆˆˆˆˆˆˆˆˆˆˆˆ
         * Documentation created
 

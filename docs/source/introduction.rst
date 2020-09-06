@@ -10,11 +10,11 @@
 Introduction
 ************
 
-Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem for core or custom modules.
+Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem (including remote filesystems like Amazon Simple Storage Service - S3) for core or custom modules.
 
 For example:
     * storing CMS media files directly in a cloud object storage (like Amazon S3 or Azure Files) without touching server disk could be achieved with little effort :ref:`explained here <cms>`.
-    * all files that are served raw could easily served directly form there or through a built-in or third party CDN.
+    * all files that are served raw could easily be served directly form there or through a built-in or third party CDN.
     * products media files could also be stored in a cloud object storage, but in this case the resized images could be served through a reverse proxy server with fallback on Magento resize route.
 
 Storing media files involve some work when you decide to scale horizontally, but having all media files stored in a cloud object storage service could ease the deployment process.
@@ -30,7 +30,7 @@ With this idea in mind you can identify a use-case for e-commerce website for st
 
 Using cloud storage should be easy to configure and use, ans should not add additional complexity to the system but on contrary.
 
-Reed the documentation https://magento-filesystem-extension-docs.readthedocs.io to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage systems in a platform agnostic manner.
+Reed the documentation https://docs.magento.asset42.com to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage systems in a platform agnostic manner.
 
 
 Latest releases

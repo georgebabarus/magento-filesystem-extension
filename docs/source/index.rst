@@ -6,7 +6,6 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
-
 .. include:: ../README.rst
 
 .. include:: messages.rst

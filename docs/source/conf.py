@@ -34,7 +34,7 @@ extensions = [
     'sphinx_sitemap',
     'sphinxcontrib.images'
 ]
-html_baseurl = 'https://magento-filesystem-extension-docs.readthedocs.io/'
+html_baseurl = 'https://docs.magento.asset42.com/'
 
 # html_baseurl = 'https://magento-file-storage-docs.babarus.ro/'
 # sitemap_url_scheme = "{link}"

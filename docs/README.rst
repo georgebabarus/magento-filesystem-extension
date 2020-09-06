@@ -4,12 +4,15 @@
 Magento filesystem component extension
 ======================================
 
+Introduction
+------------
+
 Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem for core or custom modules.
 
 There are few touch points that are not abstracted enough as you could see in current documentation, and this storage extension covers this to allow Cloud object storage service integration into Magento 2.
 In many cases existing Database files storage could not be useful and definitively is not a optimal implementation since it is doing a sync back to local filesystem on missing resource.
 
-Read the `documentation <https://magento-filesystem-extension-docs.readthedocs.io>`_ to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage services in a platform agnostic manner.
+Read the `documentation <https://docs.magento.asset42.com>`_ to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage services in a platform agnostic manner.
 
 What is covered with this extensions?
 ---------------------------------------
@@ -61,6 +64,6 @@ Bb_StorageS3
 
 
 Author
-======
+------
 
 `George Babarus <https://github.com/georgebabarus>`_
