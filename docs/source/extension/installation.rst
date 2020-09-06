@@ -48,22 +48,37 @@ Depends on AWS SDK composer package, and applies for all S3 like integrations.
 Installation process
 ====================
 
+When using custom storage drivers for custom development:
+
 .. code-block:: json
 
     {
         "...",
         "require": {
-            "bb/mage-file-storage": "1.x",
-            "bb/mage-file-storage-s3": "1.x"
+            "bb/mage-file-storage": "1.*",
+            "bb/mage-file-storage-s3": "1.*"
         },
         "..."
     }
 
 
+When you want to also overwrite Magento's core modules you should add Bb_StorageOverwrites module.
+
+.. code-block:: json
+
+    {
+        "...",
+        "require": {
+            "bb/mage-file-storage": "1.*",
+            "bb/mage-file-storage-s3": "1.*",
+            "bb/mage-file-storage-overwrites": "1.*"
+        },
+        "..."
+    }
+
 .. code-block:: shell
 
     composer install
     bin/magento setup:upgrade
-
 
 

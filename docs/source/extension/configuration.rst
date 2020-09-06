@@ -19,37 +19,95 @@ Configuration
 Application configuration
 ==========================
 
+Sample configuration file could be found under dev directory in Bb_Storage module:
+dev/sample-files/env.php
+
+The feature flag for media storage is media_storage/enabled.
+
 .. code-block:: php
 
     [
         'media_storage' => [
-        'folder_prefix' => 'folder name',
-        'path_connection' => [
-            'media' => [
-                Connection::DEFAULT_CONNECTION => 'media',
-                Connection::CONNECTION_CODE_FILE => Connection::CONNECTION_CODE_FILE,
-                S3::POOL_TYPE => 'media'
-            ]
-        ],
-        'connection' => [
-            'media' => [
-                'active'      => true,
-                'driver_code' => 's3media', // mandatory
-                'driver' => S3::class,  // mandatory
-                'stream_code' => 's3media',
-                'region' => 'fra1',
-                'bucket' => 'bucket_name',
-                'credentials' => [
-                    'key' => 'your_api_key',
-                    'secret' => 'your_secret_key',
+            'enabled'     => true,
+            'directories' => [
+                'mapping' => [
+                    'media' => [
+                        'main_connection' => 's3_public',
+                        'connections'     => [
+                            'file' => 'file',
+                            'bbS3' => 's3_public'
+                        ],
+                        'directories'     => [
+                            'downloadable'    => [
+                                'main_connection' => 's3_private',
+                                'connections'     => [
+                                    'file' => 'file',
+                                    'bbS3' => 's3_private'
+                                ]
+                            ]
+                        ]
+                    ]
                 ],
-                'endpoint' => [
-                    'origin' => 'https://fra1.digitaloceanspaces.com',
-                    'cdn' => 'https://fra1.digitaloceanspaces.com',
-                    'resize' => 'https://fra1.digitaloceanspaces.com',
-                ],
+                'configs' => [
+                    'media'                       => [
+                        's3_public' => [
+                            'directory_prefix'   => 'media',
+                            'reverse_proxy_path' => 'lo-proxy',
+                            'overwrite_base_url' => true,
+                            'fallback_directory' => [
+                                'directory_code' => 'media',
+                                'driver_code'    => 'file'
+                            ]
+                        ]
+                    ],
+                    'media/downloadable'          => [
+                        's3_private' => [
+                            'directory_prefix'   => 'media/downloadable',
+                            'overwrite_base_url' => false,
+                            'reverse_proxy_path' => '',
+                            'fallback_directory' => [
+                                'directory_code' => 'media',
+                                'driver_code'    => 'file'
+                            ]
+                        ]
+                    ]
+                ]
             ],
-        ],
+            'connections' => [
+                's3_private' => [
+                    'driver_code' => 'bbS3',
+                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
+                    'stream_code' => 's31',
+                    'region'      => 'us-east-1',
+                    'bucket'      => '<PRIVATE_BUCKET>',
+                    'credentials' => [
+                        'key'    => 'minio',
+                        'secret' => 'minio123'
+                    ],
+                    'endpoint'    => [
+                        'origin'   => 'http://minio:9000',
+                        'frontend' => 'http://127.0.0.1:9000/<PRIVATE_BUCKET>',
+                    ],
+                    'debug'       => true
+                ],
+                's3_public' => [
+                    'driver_code' => 'bbS3',
+                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
+                    'stream_code' => 's31',
+                    'region'      => 'us-east-1',
+                    'bucket'      => '<PUBLIC_BUCKET>',
+                    'credentials' => [
+                        'key'    => 'minio',
+                        'secret' => 'minio123'
+                    ],
+                    'endpoint'    => [
+                        'origin'   => 'http://minio:9000',
+                        'frontend' => 'http://127.0.0.1:9000/<PUBLIC_BUCKET>',
+                    ],
+                    'debug'       => true
+                ],
+            ]
+        ]
     ]
 
 .. _configuration/directory_mapping:
@@ -57,12 +115,96 @@ Application configuration
 Directory mapping
 -----------------
 
+Directory mapping link a specific path (eg: media/download from below example) to a main connection. Also allow you to set other available connections.
+
+.. code-block:: php
+
+    [
+        'media_storage' => [
+            'directories' => [
+                'mapping' => [
+                    'media' => [
+                        'main_connection' => 's3_public',
+                        'connections'     => [
+                            'file' => 'file',
+                            'bbS3' => 's3_public'
+                        ],
+                        'directories'     => [
+                            'downloadable'    => [
+                                'main_connection' => 's3_private',
+                                'connections'     => [
+                                    'file' => 'file',
+                                    'bbS3' => 's3_private'
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ]
+
+
+Additional directory configuration are located under media_storage\directories\configs. This configs are located by directory path and driver code.
+
+.. code-block:: php
+
+        'media_storage' => [
+            'directories' => [
+                'configs' => [
+                    'media'                       => [
+                        's3_public' => [
+                            'directory_prefix'   => 'media',
+                            'reverse_proxy_path' => 'lo-proxy',
+                            'overwrite_base_url' => true,
+                            'fallback_directory' => [
+                                'directory_code' => 'media',
+                                'driver_code'    => 'file'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+
+* directory_prefix the prefix on the destination filesystem relative to the root location
+* overwrite_base_url change Magento base url configured in store config with the one configured on driver
+* reverse_proxy_path if overwrite_base_url is false Magento base url will be prefixed with this path
+* fallback_directory will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
 
 .. _configuration/connection:
 
 Connection configuration
 ------------------------
 
+Connection details may be different depending on the Driver used for the service.
+
+.. code-block:: php
+
+    [
+        'media_storage' => [
+             'connections' => [
+                's3_private' => [
+                    'driver_code' => 'bbS3',
+                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
+                    'stream_code' => 's31', # should be at most 3 letters.
+                    'region'      => 'us-east-1',
+                    'bucket'      => '<PRIVATE_BUCKET>',
+                    'credentials' => [
+                        'key'    => 'minio',
+                        'secret' => 'minio123'
+                    ],
+                    'endpoint'    => [
+                        'origin'   => 'http://minio:9000',
+                        'frontend' => 'http://127.0.0.1:9000/<PRIVATE_BUCKET>',
+                    ],
+                    'debug'       => true
+                ]
+            ]
+        ]
+    ]
 
 
 Web-server configuration

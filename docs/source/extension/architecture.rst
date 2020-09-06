@@ -30,7 +30,7 @@ Magento extension architecture
 Upload images in admin area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Uploading files form user interfaces or programmatically at product should be compatible with any customization as log as is using Magento standard interfaces.
+Uploading files form user interfaces or programmatically should be compatible with any customization as log as is using Magento standard interfaces.
 
 Nevertheless the business logic is not changed, and cloud storage services are added using regular/local filesystem interface.
 
@@ -40,25 +40,23 @@ Nevertheless the business logic is not changed, and cloud storage services are a
 .. note::
     Uploading products attachments for downloadable products works just like uploading the product image showed in the above schema.
 
-.. note::
-    Features: :term:`WOOB` :term:`v1.0.0`
 
+Resized image delivery
+^^^^^^^^^^^^^^^^^^^^^^
 
-Frontend resized image delivery
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Resizing images could be performed on magento /media path similar with the case when files were on disk. The difference is that for mapped directories to a cloud storage, Magento will read the files using the proper driver.
 
-Resized images could be delivered directly from storage system after creating the resized image in the main request or return a proxy url responsible to return the image if not exist.
+A better way could be to have this path behind a reverse proxy configuration.
 
 The proxy can be implemented as follow:
 
-* nginx config to request it from storage system and create a fallback request in case of error on Magento resize script
-* in case you don't have access to a web server proxy configuration there is a option to return it directly from default Magento image resize script.
+    * try to deliver the file from storage system by a proxy_pass call
+    * when missing try to process the image using Magento standard path /media/*
+    * save result to storage system
+    * return to user
 
 .. image:: _static/architecture/frontend-image-delivery.png
   :alt: Upload image for product or CMS blocks
-
-.. note::
-    :term:`SWSCNO` :term:`v1.0.0`
 
 
 Frontend image delivery for original images
@@ -66,8 +64,6 @@ Frontend image delivery for original images
 
 Original images could be delivered directly from storage system, or the CDN in front of it, by configuring the base media url in admin configuration under Store -> Configuration.
 
-.. note::
-    :term:`WOOB` :term:`v1.0.0`
 
 Infrastructure architecture
 ============================
@@ -75,18 +71,12 @@ Infrastructure architecture
 Ideal infrastructure setup
 --------------------------
 
-.. warning::
-    For now all images within the media folder are saved in the same bucket. Having multiple buckets will allow user to use this extension for downloadable products :term:`future work`
-
 .. image:: _static/architecture/basic-infrastructure-architecture.png
   :alt: Basic infrastructure architecture
 
 
 Possible optimization
 ---------------------
-
-.. warning::
-    This is :term:`future work` and will be detailed soon.
 
 .. image:: _static/architecture/infrastructure-architecture-improved.png
   :alt: Infrastructure architecture improved

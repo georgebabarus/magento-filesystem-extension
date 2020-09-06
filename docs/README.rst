@@ -18,7 +18,14 @@ What is covered with this extensions?
 ---------------------------------------
 
 * Decouple file storage system form compute systems and scale them independently.
-  A driver will be basically a class implementing (Magento\Framework\Filesystem\DriverInterface) basic operations: read/write files or directory.
+
+      Install all Bb_Storage, Bb_StorageOverwrites, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable modules.
+
+      Install one of the filesystem driver module eg: Bb_StorageS3.
+
+      A driver will be basically a class implementing basic operations read/write on files or directory. (see: Magento\Framework\Filesystem\DriverInterface)
+
+      Configure directory mapping to save and serve files directly from storage service.
 
 * Mapping of any media sub-directory to various filesystem services.
 
@@ -38,8 +45,9 @@ Currently there are 6 Magento modules developed to achieve fully abstracted file
     * use the media storage system of your choice for any given directory or subdirectory
     * image resize in-place without sync back to local filesystem the file (this require having the same configuration for main directory and destination of resized files)
     * this module allows only new modules to use this features, none of Magento core functionality is touched
+    * allow new directory configuration for custom development
 
-Bb_StorageOverwrite
+Bb_StorageOverwrites
 
     * allow Bb_Storage features on built-in media directories
 
@@ -60,7 +68,7 @@ Bb_StorageDownloadable
 
 Bb_StorageS3
 
-    * implementation of Amazon S3 api as a Magento filesystem driver
+    * implementation of Amazon S3 like api as a Magento filesystem driver
 
 
 Author
