@@ -19,7 +19,7 @@ Backend
 Speaking about website management panel, the way admin user will interact with website will not be changed, in any meaner:
 
 * no other request will be made then the Magento core ones
-* no other data are transferred to server, or stored in database
+* no extra data is transferred to server, or stored in database
 * no synchronization needed beside the first setup synchronization
 * no duplicate media files will be saved once application si successfully configured
 
@@ -33,7 +33,7 @@ Frontend
 Images delivery
 ---------------
 
-As already presented there are two types of static files:
+As already presented there are two types of images:
 
 * resized/processed images that should be delivered using a proxy that can grab the original version of image process it, save the result into storage service for later use and return
 
@@ -41,7 +41,7 @@ As already presented there are two types of static files:
   :height: 300px
   :alt: Frontend demo
 
-* in debug mode you can see the reference to actual needed image from cloud
+* if debug mode is configured in proxy configuration, you can see that the request goes to actual needed image from cloud
 
 .. image:: _static/demo/cloud-storage-mapping.png
   :height: 300px
@@ -56,7 +56,5 @@ As already presented there are two types of static files:
 CDN delivery
 ------------
 
-No meter the case the solution can always contain a CDN (content delivery network) to optimize the download speed and even more avoid hitting the website infrastructure.
-
-This can be configured from Store -> Configuration as media base host, which will look further to the described proxy above.
+No meter the case you are in, the solution can always contain a CDN (content delivery network) to optimize the download speed and even more avoid hitting the website infrastructure.
 
