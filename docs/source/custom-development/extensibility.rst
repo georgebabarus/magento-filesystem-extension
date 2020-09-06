@@ -21,3 +21,77 @@ Basically any remote file storage can work on top of this Magento Storage extens
 All needed custom development for new integration will be a PHP class to implement this interface \Magento\Framework\Filesystem\DriverInterface
 
 
+Custom development based on Bb_Storage
+=======================================
+
+Create new filesystem driver
+-----------------------------
+
+Simply implement all methods of this interface \Bb\Storage\Framework\Filesystem\DriverInterface.
+After this step you can register the class under env.php configuration for media storage under driver key of connections configuration.
+See: bb/mage-file-storage/dev/sample-files/env.php
+
+.. code-block:: php
+
+    namespace Bb\Storage\Framework\Filesystem;
+
+    use Bb\Storage\Model\FileInterface;
+
+    /**
+     * Class Driver
+     * @version 1.0.0
+     */
+    interface DriverInterface extends \Magento\Framework\Filesystem\DriverInterface
+    {
+        /**
+         * @param string $path
+         * @param $flag
+         * @param $context
+         * @return FileInterface
+         */
+        public function fileGetObject(string $path, $flag = null, $context = null): FileInterface;
+
+        /**
+         * @param string $path
+         * @return array
+         */
+        public function headers(string $path): array;
+
+        /**
+         * @param $absolutePath
+         * @return bool
+         */
+        public function isLeafDirectory(string $absolutePath): bool;
+
+        /**
+         * get an url to show files in frontend
+         *
+         * @param $path
+         * @return string
+         */
+        public function getUrl($path): string;
+
+        /**
+         * @param $originalBaseUrl
+         * @return string
+         */
+        public function rewriteBaseUrl($originalBaseUrl): string;
+
+        /**
+         * @return bool
+         */
+        public function hasBaseUrlRewrite(): bool;
+
+        /**
+         * @param \Magento\Framework\Filesystem\DriverInterface $targetDriver
+         * @return bool
+         */
+        public function sameLocation(\Magento\Framework\Filesystem\DriverInterface $targetDriver): bool;
+
+        /**
+         * @return bool
+         */
+        public function requireFallbackDirectory(): bool;
+    }
+
+All configuration available and explained :ref:`here<configuration/connection>` are available for the newly implemented driver.
