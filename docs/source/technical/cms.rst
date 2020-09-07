@@ -4,9 +4,10 @@
 CMS WYSIWYG
 ============
 
-Tree
-=====
+Here are some points where Magento is not fully compatible with external filesystems, and you can find differences before and after installing extensions.
 
+Files Tree
+==========
 
 Trace & Key code classes
 -------------------------
@@ -139,6 +140,7 @@ Current path: pub/media/catalog
 
 
 S3 Driver
+~~~~~~~~~
 
 Root: media/
 Current path: media/

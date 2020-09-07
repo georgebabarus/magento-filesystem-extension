@@ -145,7 +145,7 @@ Directory mapping link a specific path (eg: media/download from below example) t
     ]
 
 
-Additional directory configuration are located under media_storage\directories\configs. This configs are located by directory path and driver code.
+Additional directory configuration are located under media_storage/directories/configs. This configs are located by directory path and driver code.
 
 .. code-block:: php
 
@@ -169,10 +169,24 @@ Additional directory configuration are located under media_storage\directories\c
     ]
 
 
-* directory_prefix the prefix on the destination filesystem relative to the root location
-* overwrite_base_url change Magento base url configured in store config with the one configured on driver
-* reverse_proxy_path if overwrite_base_url is false Magento base url will be prefixed with this path
-* fallback_directory will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
+* directory_prefix
+    * required
+    * string, not empty
+    * the prefix on the destination filesystem relative to the root location
+* overwrite_base_url
+    * not required
+    * bool true/false
+    * change Magento base url configured in store config with the one configured on driver
+
+* reverse_proxy_path
+    * not required
+    * string, empty allowed
+    * if overwrite_base_url is false Magento base url will be prefixed with this path
+
+* fallback_directory
+    * not required
+    * array
+    * will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
 
 .. _configuration/connection:
 

@@ -48,6 +48,9 @@ Depends on AWS SDK composer package, and applies for all S3 like integrations.
 Installation process
 ====================
 
+Using composer
+--------------
+
 When using custom storage drivers for custom development:
 
 .. code-block:: json
@@ -76,9 +79,21 @@ When you want to also overwrite Magento's core modules you should add Bb_Storage
         "..."
     }
 
+Register composer repository using provided username and password:
+
+.. code-block:: json
+
+    {
+        "repo.asset42.com": {
+            "username": "<username>",
+            "password": "<password>"
+        }
+    }
+
+Install new modules
+
 .. code-block:: shell
 
     composer install
     bin/magento setup:upgrade
-
 

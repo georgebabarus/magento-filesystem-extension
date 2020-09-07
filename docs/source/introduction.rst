@@ -11,14 +11,14 @@ Introduction
 ************
 
 
-Storing media files involve some work when you decide to scale horizontally, but having all media files stored in a cloud object storage service (as a external "microservice") could ease the deployment process, in same time reducing the complexity of the system.
+Storing static files inside compute system, involve some work when you decide to scale horizontally, but having all static files stored in a cloud object storage service (as a external "microservice") could ease the deployment process, in same time reducing the complexity and improving performance of the system.
 You can check :ref:`some application architectures <extension/architecture>`.
 
 For example:
     * storing CMS media files directly in a cloud object storage (like Amazon S3 or Azure Files) without touching server disk could be achieved with little effort :ref:`explained here <cms>`.
     * all files that are served raw could easily be served directly form there or through a built-in or third party CDN.
-    * products media files could also be stored in a cloud object storage, but in this case the resized images could be served through a reverse proxy server with fallback on Magento resize route.
-    * even better you can extract resizing image microservice and reduce Magento complexity.
+    * products media files could also be stored in a cloud object storage, but in this case the resized images could be served through a reverse proxy server with fallback resize endpoint.
+    * even better you can extract image resizing feature as a microservice and reduce Magento complexity.
 
 There are plenty of cloud static files storage services offered with various features, and most of them have same basic ideas:
 
@@ -26,10 +26,9 @@ There are plenty of cloud static files storage services offered with various fea
     * deliver static file public or privately
     * built in Content delivery network (CDN)
 
-With this idea in mind you can identify some advantages for using it in e-commerce website for storing images and video for products, categories or CMS pages. Storing private content like downloadable products could be covered.
+With this idea in mind you can identify some advantages for using it in e-commerce websites for storing images and video for products, categories or CMS pages. Storing private content like downloadable products could be also covered.
 
-For some advanced setups all static files could be saved in object storage service, check the plans for Magento headless platform.
-
+`Read more about Magento 2 headless implementation. <https://magento.com/blog/best-practices/future-headless/>`_
 
 Use cases
 =========
@@ -39,7 +38,8 @@ Extracting static files storage component as a mictoservice
 
 Having microservice responsible for storage of all static content and delivery is a happy case that allow developers focus on scaling independently compute and storage systems.
 
-More details will come related to this use case.
+:ref:`Read more about Magento Files Storage Microservice for Magento 2. <mss>`
+
 `Subscribe for news related to media storage microservice for Magento. <https://magento.asset42.com/file-storage-service>`_
 
 
@@ -78,7 +78,7 @@ Features
 Product file storage
 --------------------
 
-This includes product photo gallery, product description images, or other product related photos will be stored at upload time in cloud and delivered from there each time is needed in frontend.
+Images in gallery, product description images, or other product related photos will be stored at upload time in cloud and delivered from there each time is needed in frontend.
 
 Downloadable products attachments are supported by installing Bb_StorageDownloadable.
 
@@ -86,23 +86,11 @@ Downloadable products attachments are supported by installing Bb_StorageDownload
   :height: 300px
   :alt: Product file storage for gallery
 
-Nothing change in database architecture and the way Magento save path to product images.
+Nothing changes in database architecture and the way Magento save path to product images.
 
 .. image:: _static/features/catalog-product-images-in-database.png
   :height: 300px
   :alt: Database representation of product gallery
-
-WYSIWYG images storage
-----------------------
-
-In this area images are stored in cloud, and serve directly from there without needs for resizing.
-
-:term:`WOOB` See image bellow, to prove nothing change in the way content is saved. Url is still saved as relative path to media directory.
-
-
-.. image:: _static/features/wysiwyg-standard-features.png
-  :height: 300px
-  :alt: WYSIWYG images storage
 
 Photo upload and management in admin
 ------------------------------------
@@ -112,6 +100,19 @@ The extension implements cloud storage folders navigation for admin user in orde
 .. image:: _static/features/wysiwyg-navigation.png
   :height: 300px
   :alt: Photo upload and management in admin
+
+
+WYSIWYG images storage
+----------------------
+
+In this area images are stored in cloud, and serve directly from there without processing or resizing.
+
+:term:`OOB` See image bellow, to prove nothing change in the way content is saved. Url is still saved as relative path to media directory.
+
+
+.. image:: _static/features/wysiwyg-standard-features.png
+  :height: 300px
+  :alt: WYSIWYG images storage
 
 Sync command between filesystems
 ---------------------------------
@@ -142,8 +143,8 @@ For migration projects there is a command to synchronize media files from one fi
   :height: 300px
   :alt: Sync images between filesystem
 
-Difference report between filesystems
--------------------------------------
+Report differences between filesystems
+--------------------------------------
 
 :term:`future work`
 
@@ -166,10 +167,10 @@ Also for later use there is a developer command to report the differences betwee
       directory             Directory to be compared
 
 
-Multiple cloud buckets mapping for each main directory
+Multiple cloud buckets mapping for each sub-directory
 ------------------------------------------------------
 
-Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should be served only through application server.
+Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should always be served through application server.
 
 Known issues
 ============

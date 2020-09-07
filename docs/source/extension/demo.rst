@@ -33,28 +33,33 @@ Frontend
 Images delivery
 ---------------
 
-As already presented there are two types of images:
+As already discussed, with this modules we manage two types of images:
 
 * resized/processed images that should be delivered using a proxy that can grab the original version of image process it, save the result into storage service for later use and return
 
-.. image:: _static/demo/frontend-demo.png
-  :height: 300px
-  :alt: Frontend demo
+    .. image:: _static/demo/frontend-demo.png
+      :height: 300px
+      :alt: Frontend demo
 
-* if debug mode is configured in proxy configuration, you can see that the request goes to actual needed image from cloud
+    * if debug mode is configured in proxy configuration, you can see that the request goes to actual needed image from cloud
 
-.. image:: _static/demo/cloud-storage-mapping.png
-  :height: 300px
-  :alt: Frontend demo mapping
+    .. image:: _static/demo/cloud-storage-mapping.png
+      :height: 300px
+      :alt: Frontend demo mapping
 
-* as an optimization the images delivered without any processing can be delivered by public link of the storage service.
+* raw images delivered without any processing and can be delivered by public link of the storage service.
 
-.. image:: _static/demo/serve-images-from-cloud.png
-  :height: 300px
-  :alt: Frontend demo mapping
+    .. image:: _static/demo/serve-images-from-cloud.png
+      :height: 300px
+      :alt: Frontend demo mapping
 
 CDN delivery
 ------------
 
 No meter the case you are in, the solution can always contain a CDN (content delivery network) to optimize the download speed and even more avoid hitting the website infrastructure.
 
+
+Files Storage Microservice
+--------------------------
+
+:ref:`Read more about Files Storage Microservice for Magento 2. <mss>`

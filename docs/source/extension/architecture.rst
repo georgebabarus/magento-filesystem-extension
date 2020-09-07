@@ -32,7 +32,7 @@ Upload images in admin area
 
 Uploading files form user interfaces or programmatically should be compatible with any customization as log as is using Magento standard interfaces.
 
-Nevertheless the business logic is not changed, and cloud storage services are added using regular/local filesystem interface.
+Nevertheless the business logic is not changed, and cloud storage services are integrated using regular/local filesystem interface.
 
 .. image:: _static/architecture/upload-image.png
   :alt: Upload image for product or CMS blocks
@@ -44,9 +44,9 @@ Nevertheless the business logic is not changed, and cloud storage services are a
 Resized image delivery
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Resizing images could be performed on magento /media path similar with the case when files were on disk. The difference is that for mapped directories to a cloud storage, Magento will read the files using the proper driver.
+Resizing images could be performed on magento /media path similar with the case when files were on disk. The difference is that for mapped directories to a cloud storage, now, will read the files using the proper driver.
 
-A better way could be to have this path behind a reverse proxy configuration.
+A better way could be to have this path behind a reverse proxy configuration. Sample configuration is provided for nginx server.
 
 The proxy can be implemented as follow:
 
