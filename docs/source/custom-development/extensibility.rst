@@ -33,9 +33,9 @@ See: bb/mage-file-storage/dev/sample-files/env.php
 
 .. code-block:: php
 
-    namespace Bb\Storage\Framework\Filesystem;
+    namespace Bb\Storage\Api\Framework\Filesystem;
 
-    use Bb\Storage\Model\FileInterface;
+    use Bb\Storage\Api\Data\FileInterface;
 
     /**
      * Class Driver
@@ -44,18 +44,21 @@ See: bb/mage-file-storage/dev/sample-files/env.php
     interface DriverInterface extends \Magento\Framework\Filesystem\DriverInterface
     {
         /**
+         * Alternative for read method which is not returning the headers
+         * On external filesystems is easier to extract content and headers in the same call
+         *
          * @param string $path
          * @param $flag
          * @param $context
          * @return FileInterface
          */
-        public function fileGetObject(string $path, $flag = null, $context = null): FileInterface;
+        public function readFileObject(string $path, $flag = null, $context = null): FileInterface;
 
         /**
          * @param string $path
          * @return array
          */
-        public function headers(string $path): array;
+        public function getHeaders(string $path): array;
 
         /**
          * @param $absolutePath
@@ -72,10 +75,10 @@ See: bb/mage-file-storage/dev/sample-files/env.php
         public function getUrl($path): string;
 
         /**
-         * @param $originalBaseUrl
+         * @param $baseUrl
          * @return string
          */
-        public function rewriteBaseUrl($originalBaseUrl): string;
+        public function rewriteBaseUrl($baseUrl): string;
 
         /**
          * @return bool
@@ -93,5 +96,6 @@ See: bb/mage-file-storage/dev/sample-files/env.php
          */
         public function requireFallbackDirectory(): bool;
     }
+
 
 All configuration available and explained :ref:`here<configuration/connection>` are available for the newly implemented driver.

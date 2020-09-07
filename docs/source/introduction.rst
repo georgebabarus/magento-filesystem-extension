@@ -10,44 +10,39 @@
 Introduction
 ************
 
-Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem for core or custom modules.
+
+Storing static files inside compute system, involve some work when you decide to scale horizontally, but having all static files stored in a cloud object storage service (as a external "microservice") could ease the deployment process, in same time reducing the complexity and improving performance of the system.
+You can check :ref:`some application architectures <extension/architecture>`.
 
 For example:
     * storing CMS media files directly in a cloud object storage (like Amazon S3 or Azure Files) without touching server disk could be achieved with little effort :ref:`explained here <cms>`.
-    * all files that are served raw could easily served directly form there or through a built-in or third party CDN.
-    * products media files could also be stored in a cloud object storage, but in this case the resized images could be served through a reverse proxy server with fallback on Magento resize route.
+    * all files that are served raw could easily be served directly form there or through a built-in or third party CDN.
+    * products media files could also be stored in a cloud object storage, but in this case the resized images could be served through a reverse proxy server with fallback resize endpoint.
+    * even better you can extract image resizing feature as a microservice and reduce Magento complexity.
 
-Storing media files involve some work when you decide to scale horizontally, but having all media files stored in a cloud object storage service could ease the deployment process.
-You can check :ref:`some application architectures <extension/architecture>`.
+There are plenty of cloud static files storage services offered with various features, and most of them have same basic ideas:
 
-There are plenty of cloud static files storage services offered with various feature but most of them have same basic ideas:
+    * allow secure upload remotely of files
+    * deliver static file public or privately
+    * built in Content delivery network (CDN)
 
-* allow secure upload remotely of files
-* deliver static file public or privately
-* built in Content delivery network (CDN)
+With this idea in mind you can identify some advantages for using it in e-commerce websites for storing images and video for products, categories or CMS pages. Storing private content like downloadable products could be also covered.
 
-With this idea in mind you can identify a use-case for e-commerce website for storing images and video for products, categories or CMS pages and deliver them using a CDN. Or even storing private content like downloadable products.
-
-Using cloud storage should be easy to configure and use, ans should not add additional complexity to the system but on contrary.
-
-Reed the documentation https://magento-filesystem-extension-docs.readthedocs.io to see some of the key advantages of using this Magento 2 extension to integrate with various cloud file storage systems in a platform agnostic manner.
-
-
-Latest releases
-===============
-
-.. note::
-
-    This extension is currently a active development phase, check :ref:`Project Roadmap <roadmap>` to see some ideas or ask for solution on a particular use case.
-
-    1.0.0 - proof of concept
-          - Bb_Storage could be installed independently and will allow custom/new directories for new modules
-          - To overwrite Magento storage following modules should be installed (are dependent on each-other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
-          - For now, When you create a mapping for a subdirectory, you need to create configuration for all others subdirectories
-
+`Read more about Magento 2 headless implementation. <https://magento.com/blog/best-practices/future-headless/>`_
 
 Use cases
 =========
+
+Extracting static files storage component as a mictoservice
+-----------------------------------------------------------
+
+Having microservice responsible for storage of all static content and delivery is a happy case that allow developers focus on scaling independently compute and storage systems.
+
+:ref:`Read more about Magento Files Storage Microservice for Magento 2. <mss>`
+
+`Subscribe for news related to media storage microservice for Magento. <https://magento.asset42.com/file-storage-service>`_
+
+
 
 On premises deployment with cloud file storage and CDN in cloud
 ---------------------------------------------------------------
@@ -65,7 +60,7 @@ Store media files using remote cloud services, process images on application ser
 Migration to cloud from on premises infrastructure
 --------------------------------------------------
 
-In migration stage this module could be used as a mean to migrate media files to cloud storage service.
+In migration stage this module could be used as a way to migrate media files to cloud storage service.
 
 .. image:: _static/migration-to-cloud.png
   :alt: Migration to cloud
@@ -83,31 +78,19 @@ Features
 Product file storage
 --------------------
 
-This includes product photo gallery, product description images, or other product related photos will be stored at upload time in cloud and delivered from there each time is needed in frontend.
+Images in gallery, product description images, or other product related photos will be stored at upload time in cloud and delivered from there each time is needed in frontend.
 
-Downloadable products attachments will be available in future release.
+Downloadable products attachments are supported by installing Bb_StorageDownloadable.
 
 .. image:: _static/features/product-gallery.png
   :height: 300px
   :alt: Product file storage for gallery
 
-Nothing change in database architecture and the way Magento save path to product images.
+Nothing changes in database architecture and the way Magento save path to product images.
 
 .. image:: _static/features/catalog-product-images-in-database.png
   :height: 300px
   :alt: Database representation of product gallery
-
-WYSIWYG images storage
-----------------------
-
-This mainly store images in cloud, and serve them directly from there without needs for resizing.
-
-:term:`WOOB` See image bellow, to prove nothing change in the way content is saved. Url is still saved as relative path to media directory.
-
-
-.. image:: _static/features/wysiwyg-standard-features.png
-  :height: 300px
-  :alt: WYSIWYG images storage
 
 Photo upload and management in admin
 ------------------------------------
@@ -118,10 +101,23 @@ The extension implements cloud storage folders navigation for admin user in orde
   :height: 300px
   :alt: Photo upload and management in admin
 
-Sync corn between filesystems
-------------------------------
 
-For migration projects there is a command to synchronize media files from on filesystem to another.
+WYSIWYG images storage
+----------------------
+
+In this area images are stored in cloud, and serve directly from there without processing or resizing.
+
+:term:`OOB` See image bellow, to prove nothing change in the way content is saved. Url is still saved as relative path to media directory.
+
+
+.. image:: _static/features/wysiwyg-standard-features.png
+  :height: 300px
+  :alt: WYSIWYG images storage
+
+Sync command between filesystems
+---------------------------------
+
+For migration projects there is a command to synchronize media files from one filesystem to another.
 
 
 .. code-block:: shell
@@ -147,8 +143,10 @@ For migration projects there is a command to synchronize media files from on fil
   :height: 300px
   :alt: Sync images between filesystem
 
-Difference report between filesystems
--------------------------------------
+Report differences between filesystems
+--------------------------------------
+
+:term:`future work`
 
 Also for later use there is a developer command to report the differences between two filesystems in order to re-evaluate migration process.
 
@@ -169,10 +167,38 @@ Also for later use there is a developer command to report the differences betwee
       directory             Directory to be compared
 
 
-Multiple cloud buckets mapping for each main directory
+Multiple cloud buckets mapping for each sub-directory
 ------------------------------------------------------
 
-Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should be served only through application server.
+Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should always be served through application server.
+
+Known issues
+============
+
+    .. _known_issues:
+
+Overwriting Magento media (or other core directory) location may cause some errors in modules (including Magento Core modules) not consistently using \\Magento\\Framework\\Filesystem for directory and files operations.
+
+In some cases operations on files or directories are performed directly with php functions, or \\Magento\\Framework\\Filesystem\\DriverInterface objects are obtained directly from ObjectManager. Obtaining a driver object form filesystem object will avoid this type of problems.
+
+Most of inconsistencies from Magento core are fixed in Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable modules, and is part of the plan to include this improvements in Magento Community project.
+
+However overwriting Magento core directories is not mandatory, because you can configure new directories for custom implementation with the base module Bb_Storage ant the module implementing the driver of your choice eg: Bb_StorageS3.
+
+This module is not yet compatible with New Magento Media Gallery.
+
+Latest releases
+===============
+
+.. note::
+
+    This extension is currently a active development phase, check :ref:`Project Roadmap <roadmap>` to see some ideas or ask for solution on a particular use case.
+
+    1.0.0 - proof of concept
+          - Bb_Storage could be installed independently and will allow custom/new directories for new modules
+          - To overwrite Magento storage following modules should be installed (are dependent on each-other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
+          - For now, When you create a mapping for a subdirectory, you need to create configuration for all others subdirectories
+          - Available driver Bb_StorageS3 for Amazon S3 like integration. More drivers will be published soon depending on demands. Please request new drivers `on github <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_.
 
 
 Useful links
