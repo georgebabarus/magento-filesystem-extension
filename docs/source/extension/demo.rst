@@ -63,3 +63,71 @@ Files Storage Microservice
 --------------------------
 
 :ref:`Read more about Files Storage Microservice for Magento 2. <mss>`
+
+
+Extension in action
+====================
+
+Bellow you can see a test setup that will prove versatility of this extensions group.
+
+You will find all key features explained during this documentation in few images, to better understand the use case.
+
+Keep in mind that during this demo session the local disk of application server is never touched in media directory, all files are stored in configured storage service:
+
+    * products images and cms pages and blocks images are stored in local Minio storage service
+    * downloadable products attachments are stored in Amazon S3, private bucket
+
+
+Catalog product image
+---------------------
+
+Update catalog product image directly in Minio - compatible with S3 API  media storage service.
+
+.. image:: _static/demo/gif/catalog-product-photo.gif
+  :height: 300px
+  :alt: Catalog product edit
+
+Resized images are served on demand directly from storage service, without checking application local disk.
+
+.. image:: _static/demo/gif/product-resized-image-cache.gif
+  :height: 300px
+  :alt: Catalog product edit
+
+
+Downloadable attachments on products
+------------------------------------
+
+Downloadable product attachments are saved in Amazon S3 storage service, in a private bucket.
+
+.. image:: _static/demo/gif/downloadable-products.gif
+  :height: 300px
+  :alt: Downloadable product files
+
+
+Products CMS content
+---------------------
+
+See the direct url of the image saved in Mino storage service, and the relative path used in admin panel.
+
+.. image:: _static/demo/gif/product-cms.gif
+  :height: 300px
+  :alt: Product cms images
+
+
+CMS pages content
+-----------------
+
+Images in CMS pages are only saved in storage service, and served using the public URL of the storage service.
+
+.. image:: _static/demo/gif/cms-pages-images.gif
+  :height: 300px
+  :alt: Cms pages images
+
+
+CMS blocks content
+------------------
+
+.. image:: _static/demo/gif/cms-blocks.gif
+  :height: 300px
+  :alt: Cms blocks images
+
