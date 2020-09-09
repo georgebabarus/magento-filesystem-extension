@@ -84,13 +84,13 @@ Catalog product image
 
 Update catalog product image directly in Minio - compatible with S3 API  media storage service.
 
-.. image:: _static/demo/gif/catalog-product-photo.gif
+.. image:: _static/gif/catalog-product-photo.gif
   :height: 300px
   :alt: Catalog product edit
 
 Resized images are served on demand directly from storage service, without checking application local disk.
 
-.. image:: _static/demo/gif/product-resized-image-cache.gif
+.. image:: _static/gif/product-resized-image-cache.gif
   :height: 300px
   :alt: Catalog product edit
 
@@ -100,7 +100,7 @@ Downloadable attachments on products
 
 Downloadable product attachments are saved in Amazon S3 storage service, in a private bucket.
 
-.. image:: _static/demo/gif/downloadable-products.gif
+.. image:: _static/gif/downloadable-products.gif
   :height: 300px
   :alt: Downloadable product files
 
@@ -110,7 +110,7 @@ Products CMS content
 
 See the direct url of the image saved in Mino storage service, and the relative path used in admin panel.
 
-.. image:: _static/demo/gif/product-cms.gif
+.. image:: _static/gif/product-cms.gif
   :height: 300px
   :alt: Product cms images
 
@@ -120,7 +120,7 @@ CMS pages content
 
 Images in CMS pages are only saved in storage service, and served using the public URL of the storage service.
 
-.. image:: _static/demo/gif/cms-pages-images.gif
+.. image:: _static/gif/cms-pages-images.gif
   :height: 300px
   :alt: Cms pages images
 
@@ -128,7 +128,7 @@ Images in CMS pages are only saved in storage service, and served using the publ
 CMS blocks content
 ------------------
 
-.. image:: _static/demo/gif/cms-blocks.gif
+.. image:: _static/gif/cms-blocks.gif
   :height: 300px
   :alt: Cms blocks images
 
