@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Magento 2 changes in cms module
+
+.. meta::
+    :keywords lang=en:
+        file storage service, cloud, integration, cms
+
 .. _cms:
 
 ============

@@ -12,6 +12,17 @@
 Configuration
 *************
 
+For now available configuration are inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
+
+Mainly the configuration consists of 3 components:
+
+    * driver_configs which are configurations related to connection to the filesystem provider
+
+    * directories -> mapping - in this path you will be able to define new directories paths or overwrite existing ones under ./pub directory
+
+    * directories -> configs - in this path you can configure additional settings related to specified directory and driver. eg: custom endpoint delivery path
+
+
 .. include:: ./../messages.rst
 
 .. contents:: Table of Contents
@@ -28,29 +39,48 @@ The feature flag for media storage is media_storage/enabled.
 
     [
         'media_storage' => [
-            'enabled'     => true,
-            'directories' => [
+            'enabled'        => true,
+            'directories'    => [
                 'mapping' => [
                     'media' => [
-                        'main_connection' => 's3_public',
-                        'connections'     => [
+                        'main_driver'    => 's3_lo',
+                        'driver_configs' => [
                             'file' => 'file',
-                            'bbS3' => 's3_public'
+                            's3'   => 's3_lo'
                         ],
-                        'directories'     => [
-                            'downloadable'    => [
-                                'main_connection' => 's3_private',
-                                'connections'     => [
+                        'directories'    => [
+                            'catalog'         => [
+                                'main_driver'    => 's3_lo',
+                                'driver_configs' => [
                                     'file' => 'file',
-                                    'bbS3' => 's3_private'
+                                    's3'   => 's3_lo'
+                                ],
+                                'directories'    => [
+                                    'product/cache' => [
+                                        'main_driver' => 's3_lo'
+                                    ]
                                 ]
-                            ]
+                            ],
+                            'downloadable'    => [
+                                'main_driver'    => 's3_aws',
+                                'driver_configs' => [
+                                    'file' => 'file',
+                                    's3'   => 's3_lo'
+                                ]
+                            ],
+                            'invalid-mapping' => [
+                                'main_driver' => 'invalid-mapping',
+                            ],
+                            'other'           => [
+                                'main_driver' => 'file'
+                            ],
+                            'empty-mapping'   => []
                         ]
                     ]
                 ],
                 'configs' => [
                     'media'                       => [
-                        's3_public' => [
+                        's3_lo' => [
                             'directory_prefix'   => 'media',
                             'reverse_proxy_path' => 'lo-proxy',
                             'overwrite_base_url' => true,
@@ -60,55 +90,100 @@ The feature flag for media storage is media_storage/enabled.
                             ]
                         ]
                     ],
-                    'media/downloadable'          => [
-                        's3_private' => [
-                            'directory_prefix'   => 'media/downloadable',
-                            'overwrite_base_url' => false,
-                            'reverse_proxy_path' => '',
+                    'media/catalog'               => [
+                        's3_lo' => [
+                            'directory_prefix'   => 'media/catalog',
+                            'overwrite_base_url' => true,
+                            'reverse_proxy_path' => 'lo-proxy',
                             'fallback_directory' => [
                                 'directory_code' => 'media',
                                 'driver_code'    => 'file'
                             ]
                         ]
+                    ],
+                    'media/catalog/product/cache' => [
+                        's3_lo' => [
+                            'directory_prefix'   => 'media/catalog/product/cache',
+                            'overwrite_base_url' => true,
+                            'reverse_proxy_path' => 'lo-proxy',
+                            'fallback_directory' => [
+                                'directory_code' => 'media',
+                                'driver_code'    => 'file'
+                            ]
+                        ]
+                    ],
+                    'media/downloadable'          => [
+                        's3_aws' => [
+                            'directory_prefix'   => 'media/downloadable',
+                            'overwrite_base_url' => true,
+                            'reverse_proxy_path' => 'aws-proxy',
+                            'fallback_directory' => [
+                                'directory_code' => 'media',
+                                'driver_code'    => 'file'
+                            ]
+                        ]
+                    ],
+                    'media/other'                 => [
+                        'file' => [
+                            'directory_prefix' => 'media/other',
+                        ]
+                    ],
+                    'media/invalid-mapping'       => [
+                        'invalid-mapping' => [
+
+                        ]
                     ]
                 ]
             ],
-            'connections' => [
-                's3_private' => [
-                    'driver_code' => 'bbS3',
-                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
-                    'stream_code' => 's31',
+            'driver_configs' => [
+                's3_do'  => [
+                    'driver_code' => 's3',
+                    'stream_code' => 's3m',
+                    'region'      => 'fra1',
+                    'bucket'      => 'testbb',
+                    'credentials' => [
+                        'key'    => '',
+                        'secret' => ''
+                    ],
+                    'endpoint'    => [
+                        'origin'   => 'https://fra1.digitaloceanspaces.com',
+                        'frontend' => 'https://fra1.digitaloceanspaces.com/testbb',
+                    ],
+                    'debug'       => true
+                ],
+                's3_aws' => [
+                    'driver_code' => 's3',
+                    'stream_code' => 's3m',
+                    'region'      => 'eu-central-1',
+                    'bucket'      => 'magento.storage',
+                    'credentials' => [
+                        'key'    => '',
+                        'secret' => ''
+                    ],
+                    'endpoint'    => [
+                        'origin'   => 'https://s3.eu-central-1.amazonaws.com',
+                        'frontend' => 'https://s3.eu-central-1.amazonaws.com',
+                    ],
+                    'debug'       => true
+                ],
+                's3_lo'  => [
+                    'driver_code' => 's3',
+                    'stream_code' => 's3l',
                     'region'      => 'us-east-1',
-                    'bucket'      => '<PRIVATE_BUCKET>',
+                    'bucket'      => 'testbb',
                     'credentials' => [
                         'key'    => 'minio',
                         'secret' => 'minio123'
                     ],
                     'endpoint'    => [
                         'origin'   => 'http://minio:9000',
-                        'frontend' => 'http://127.0.0.1:9000/<PRIVATE_BUCKET>',
+                        'frontend' => 'http://127.0.0.1:9000/testbb',
                     ],
                     'debug'       => true
-                ],
-                's3_public' => [
-                    'driver_code' => 'bbS3',
-                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
-                    'stream_code' => 's31',
-                    'region'      => 'us-east-1',
-                    'bucket'      => '<PUBLIC_BUCKET>',
-                    'credentials' => [
-                        'key'    => 'minio',
-                        'secret' => 'minio123'
-                    ],
-                    'endpoint'    => [
-                        'origin'   => 'http://minio:9000',
-                        'frontend' => 'http://127.0.0.1:9000/<PUBLIC_BUCKET>',
-                    ],
-                    'debug'       => true
-                ],
+                ]
             ]
         ]
-    ]
+    ];
 
 .. _configuration/directory_mapping:
 
@@ -121,18 +196,19 @@ Directory mapping link a specific path (eg: media/download from below example) t
 
     [
         'media_storage' => [
-            'directories' => [
+            'enabled'        => true,
+            'directories'    => [
                 'mapping' => [
                     'media' => [
-                        'main_connection' => 's3_public',
-                        'connections'     => [
+                        'main_driver'    => 's3_lo',
+                        'driver_configs' => [
                             'file' => 'file',
-                            'bbS3' => 's3_public'
+                            's3'   => 's3_lo'
                         ],
-                        'directories'     => [
+                        'directories'     => [ // this are subdirectories
                             'downloadable'    => [
-                                'main_connection' => 's3_private',
-                                'connections'     => [
+                                'main_driver' => 's3_private', // other driver config identifier here
+                                'driver_configs'     => [
                                     'file' => 'file',
                                     'bbS3' => 's3_private'
                                 ]
@@ -199,23 +275,22 @@ Connection details may be different depending on the Driver used for the service
 
     [
         'media_storage' => [
-             'connections' => [
-                's3_private' => [
-                    'driver_code' => 'bbS3',
-                    'driver'      => 'Bb\\StorageS3\\Filesystem\\Driver\\S3',
-                    'stream_code' => 's31', # should be at most 3 letters.
-                    'region'      => 'us-east-1',
-                    'bucket'      => '<PRIVATE_BUCKET>',
+            'driver_configs' => [
+                's3_do'  => [
+                    'driver_code' => 's3', // Driver code registered by driver nodule
+                    'stream_code' => 's3m', // this is a stream code, some modules need it. use 3 letters code unique per connection
+                    'region'      => 'fra1',
+                    'bucket'      => 'testbb',
                     'credentials' => [
-                        'key'    => 'minio',
-                        'secret' => 'minio123'
+                        'key'    => '',
+                        'secret' => ''
                     ],
                     'endpoint'    => [
-                        'origin'   => 'http://minio:9000',
-                        'frontend' => 'http://127.0.0.1:9000/<PRIVATE_BUCKET>',
+                        'origin'   => 'https://fra1.digitaloceanspaces.com',
+                        'frontend' => 'https://fra1.digitaloceanspaces.com/testbb',
                     ],
                     'debug'       => true
-                ]
+                ],
             ]
         ]
     ]

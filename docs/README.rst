@@ -41,6 +41,11 @@ What is covered with this extensions?
 
 Currently there are 6 Magento modules developed to achieve fully abstracted filesystem implementation:
 
+.. warning::
+
+    All extension are available on `Magento Marketplace <https://marketplace.magento.com/>`_.
+    `Read more about what you should purchase and install <https://docs.magento.asset42.com/en/latest/extension/installation.html>`_
+
 * Bb_Storage is the core module implementing most of business logic:
 
     * directories mapping

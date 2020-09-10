@@ -12,6 +12,10 @@
 Architecture
 ****************
 
+Find some ideas related to Magento architecture and the possible solutions for extracting static files to a external filesystem service.
+
+Take this architecture documentation page as a guideline, and not as a part provided by this extensions.
+
 .. include:: ./../messages.rst
 
 .. note::

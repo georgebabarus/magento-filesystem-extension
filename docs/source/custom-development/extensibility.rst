@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        Extensibility for Magento 2 filesystem integration feature
+
+.. meta::
+    :keywords lang=en:
+        file storage service, cloud, integration, extension
+
 *************
 Extensibility
 *************

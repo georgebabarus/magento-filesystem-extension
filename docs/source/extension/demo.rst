@@ -1,3 +1,5 @@
+.. _demo:
+
 .. meta::
     :description lang=en:
         File Storage Demo of Amazon S3 storage integration into Magento 2.
@@ -9,6 +11,13 @@
 ************
 Demo
 ************
+
+This demo page will guide you through main features affected by media files relocation. In this scenario the extension is configured to map pub/media file to external filesystem.
+
+Even if there are some configuration needed, maybe some changes in codebase, the overall system should become more robust after a proper configuration.
+
+Keep in mind that depending on the implementation of a 3rd party extension it may brake during the configuration of magento core directories mapping to external filesystems.
+
 
 .. include:: ./../messages.rst
 .. contents:: Table of Contents

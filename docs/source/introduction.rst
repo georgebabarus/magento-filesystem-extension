@@ -172,10 +172,10 @@ Multiple cloud buckets mapping for each sub-directory
 
 Having multiple cloud objects buckets mapped to different media level directories allow website to expose files with different level of permission for frontend. For example for downloadable products, files should always be served through application server.
 
+    .. _known_issues:
+
 Known issues
 ============
-
-    .. _known_issues:
 
 Overwriting Magento media (or other core directory) location may cause some errors in modules (including Magento Core modules) not consistently using \\Magento\\Framework\\Filesystem for directory and files operations.
 

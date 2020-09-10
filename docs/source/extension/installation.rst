@@ -10,6 +10,26 @@
 Getting Started
 ****************
 
+Before starting and purchasing extensions please read carefully the documentation and ask questions if this extensions cover your needs.
+
+Each extension is available in Magento Marketplace individually.
+
+    * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_StorageMarketplace| and the needed filesystem driver eg: |ShopBb_StorageS3Marketplace|
+
+    * If you would like to overwrite some of Magento Core features or create a mapping for exiting directory to a external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this |ShopBb_StorageOverwritesMarketplace|
+
+    .. warning::
+
+        |ShopBb_StorageOverwritesMarketplace| is currently on beta phase so it will possibly affect some of Magento core features or 3rd party modules.
+
+
+    The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
+
+    .. warning::
+
+        By purchasing this extension will move forward this project of improving Magento Community abstraction on filesystem component.
+
+
 .. include:: ./../messages.rst
 
 .. contents:: Table of Contents
@@ -97,3 +117,30 @@ Install new modules
     composer install
     bin/magento setup:upgrade
 
+
+Contribution
+------------
+
+In case you are using this extensions from composer repository you can consider contributing with code patches on the issues you already fixed.
+
+One way of doing this is by creating a local repository with your original code version you are using on your installation (vx.x.x):
+
+.. code-block:: shell
+
+    $ git init
+    $ git commit -m "original version"
+
+Make the changes your are planning to submit, and then create a file with those changes and the name of the version
+
+.. code-block:: shell
+
+    $ git diff --no-prefix > describe-problem-vx.x.x.patch
+
+    // you also can apply the path on your installation also until the issue will be fix
+    $ patch -p0 < describe-problem-vx.x.x.patch
+
+
+
+
+
+.. include:: ./../all-pages/available-links.rst
