@@ -1,0 +1,8 @@
+
+CMS blocks content
+------------------
+
+.. image:: ./../_static/gif/cms-blocks.gif
+  :height: 300px
+  :alt: Cms blocks images
+

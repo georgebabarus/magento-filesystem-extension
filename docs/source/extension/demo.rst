@@ -88,56 +88,12 @@ Keep in mind that during this demo session the local disk of application server 
     * downloadable products attachments are stored in Amazon S3, private bucket
 
 
-Catalog product image
----------------------
+.. toctree::
+   :caption: Find more demo here
 
-Update catalog product image directly in Minio - compatible with S3 API  media storage service.
-
-.. image:: _static/gif/catalog-product-photo.gif
-  :height: 300px
-  :alt: Catalog product edit
-
-Resized images are served on demand directly from storage service, without checking application local disk.
-
-.. image:: _static/gif/product-resized-image-cache.gif
-  :height: 300px
-  :alt: Catalog product edit
-
-
-Downloadable attachments on products
-------------------------------------
-
-Downloadable product attachments are saved in Amazon S3 storage service, in a private bucket.
-
-.. image:: _static/gif/downloadable-products.gif
-  :height: 300px
-  :alt: Downloadable product files
-
-
-Products CMS content
----------------------
-
-See the direct url of the image saved in Mino storage service, and the relative path used in admin panel.
-
-.. image:: _static/gif/product-cms.gif
-  :height: 300px
-  :alt: Product cms images
-
-
-CMS pages content
------------------
-
-Images in CMS pages are only saved in storage service, and served using the public URL of the storage service.
-
-.. image:: _static/gif/cms-pages-images.gif
-  :height: 300px
-  :alt: Cms pages images
-
-
-CMS blocks content
-------------------
-
-.. image:: _static/gif/cms-blocks.gif
-  :height: 300px
-  :alt: Cms blocks images
+   demo/1
+   demo/2
+   demo/3
+   demo/4
+   demo/5
 

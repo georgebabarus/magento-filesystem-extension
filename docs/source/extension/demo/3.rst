@@ -1,0 +1,11 @@
+
+
+Products CMS content
+---------------------
+
+See the direct url of the image saved in Mino storage service, and the relative path used in admin panel.
+
+.. image:: ./../_static/gif/product-cms.gif
+  :height: 300px
+  :alt: Product cms images
+
