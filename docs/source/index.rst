@@ -53,7 +53,7 @@
    license
 
 Glossary
-========
+--------
 
 .. glossary::
     OOB
