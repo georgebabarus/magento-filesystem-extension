@@ -110,3 +110,6 @@ See: bb/mage-file-storage/dev/sample-files/env.php
 
 
 All configuration available and explained :ref:`here<configuration/connection>` are available for the newly implemented driver.
+
+
+.. include:: ./../all-pages/available-links.rst

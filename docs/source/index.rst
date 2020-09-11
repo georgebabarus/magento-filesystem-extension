@@ -64,3 +64,6 @@ Glossary
 
     NEXT_MAJOR_RELEASE
         The referred item is part of next major release plan.
+
+
+.. include:: ./../all-pages/available-links.rst

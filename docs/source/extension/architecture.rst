@@ -87,3 +87,5 @@ Possible optimization
 
 
 
+
+.. include:: ./../all-pages/available-links.rst

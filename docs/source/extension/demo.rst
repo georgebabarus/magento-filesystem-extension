@@ -97,3 +97,5 @@ Keep in mind that during this demo session the local disk of application server 
    demo/4
    demo/5
 
+
+.. include:: ./../all-pages/available-links.rst

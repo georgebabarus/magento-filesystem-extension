@@ -345,3 +345,7 @@ Admin panel configuration
 ==========================
 
 For now there are no configuration in admin panel. See roadmap for more details.
+
+
+
+.. include:: ./../all-pages/available-links.rst

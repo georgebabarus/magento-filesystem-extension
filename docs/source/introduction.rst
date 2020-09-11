@@ -225,3 +225,6 @@ Read more about CDN:
     https://docs.microsoft.com/en-us/azure/cdn/
 * Akamai
     https://www.akamai.com/
+
+
+.. include:: ./../all-pages/available-links.rst

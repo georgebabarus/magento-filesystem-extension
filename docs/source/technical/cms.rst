@@ -271,3 +271,5 @@ Current path: media/catalog/
 
 
 
+
+.. include:: ./../all-pages/available-links.rst
