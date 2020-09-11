@@ -4,7 +4,7 @@ import sys
 import os
 import re
 
-__version__ = '1.0.0'
+__version__ = 'latest'
 if not 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath('custom-development/'))
@@ -37,6 +37,7 @@ extensions = [
 html_baseurl = 'https://docs.magento.asset42.com/'
 # html_baseurl = 'https://magento-file-storage-docs.babarus.ro/'
 # sitemap_url_scheme = "{link}"
+sitemap_filename = "sitemap-all.xml"
 
 html_extra_path = ['robots.txt']
 html_title = project + ''
@@ -59,7 +60,8 @@ source_parsers = {
 }
 
 exclude_patterns = [
-    'requirements.txt'
+    'requirements.txt',
+    'all-pages'
 ]
 locale_dirs = ['locale/']
 gettext_compact = False
