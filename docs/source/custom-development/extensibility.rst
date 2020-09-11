@@ -10,6 +10,9 @@
 Extensibility
 *************
 
+The extension is exposing extended interface (API) to execute filesystem operations, there for, it's main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
+
+Instead of using \Magento\Framework\Filesystem object you will need to use \Bb\Storage\Framework\Filesystem or \Bb\Storage\Api\Filesystem\ExtendedFilesystemInterface.
 
 .. include:: ./../messages.rst
 .. contents:: Table of Contents
