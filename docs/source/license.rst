@@ -1,3 +1,11 @@
+.. meta::
+    :description lang=en:
+        End-User License Agreement (EULA) of Bb Magento Storage
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, storage, integration, amazon s3, license
+
 End-User License Agreement (EULA) of Bb Magento Storage
 ========================================================
 

@@ -15,7 +15,7 @@ from sphinx.locale import _
 import recommonmark
 from recommonmark.transform import AutoStructify
 
-project = u'Magento 2 Filesystem Storage'
+project = u'Magento 2 Extended Filesystem'
 slug = re.sub(r'\W+', '-', project.lower())
 version = __version__
 release = __version__
@@ -35,11 +35,12 @@ extensions = [
     'sphinxcontrib.images'
 ]
 html_baseurl = 'https://docs.magento.asset42.com/'
-
 # html_baseurl = 'https://magento-file-storage-docs.babarus.ro/'
 # sitemap_url_scheme = "{link}"
 
 html_extra_path = ['robots.txt']
+html_title = project + ''
+
 images_config = {
     'override_image_directive': True
 }
