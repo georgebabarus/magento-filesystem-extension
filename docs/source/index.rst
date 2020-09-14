@@ -6,7 +6,12 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
+***************************************
+Magento filesystem component extension
+***************************************
+
 .. include:: messages.rst
+
 
 .. toctree::
    :caption: Magento 2 Extension
