@@ -6,7 +6,7 @@ Magento filesystem component extension
 ***************************************
 
 Introduction
-------------
+============
 
 Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem (eg: external filesystems like Amazon Simple Storage Service - S3) for core or custom modules.
 
@@ -19,7 +19,7 @@ The ultimate scope of this extensions is to extract static files storage as micr
 Read the `documentation <https://docs.magento.asset42.com>`_ to see some of the key advantages of using this Magento 2 extensions to integrate with various cloud file storage services in a platform agnostic manner.
 
 What is covered with this extensions?
----------------------------------------
+=====================================
 
 * Decouple file storage system form compute systems and scale them independently.
 
@@ -81,6 +81,6 @@ Currently there are 6 Magento modules developed to achieve fully abstracted file
 
 
 Author
-------
+======
 
 `George Babarus <https://github.com/georgebabarus>`_
