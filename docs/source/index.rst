@@ -12,8 +12,6 @@ Magento filesystem component extension
 
 .. include:: messages.rst
 
-.. include:: introduction.rst
-
 .. toctree::
    :caption: Magento 2 Extension
 
