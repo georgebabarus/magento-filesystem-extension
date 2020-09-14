@@ -13,7 +13,7 @@
 .. toctree::
    :caption: Magento 2 Extension
 
-   Introduction <https://docs.magento.asset42.com/en/latest/index.html>
+   introduction
    details
    extension/architecture
    extension/installation
