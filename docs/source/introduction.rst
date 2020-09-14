@@ -195,7 +195,7 @@ Latest releases
 
     This extension is currently a active development phase, check :ref:`Project Roadmap <roadmap>` to see some ideas or ask for solution on a particular use case.
 
-    .. warning::
+    .. important::
 
         * Feel free to create new issues for: feature requests, questions, new ideas and improvements or bugs related to this extensions: `On github <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_
 

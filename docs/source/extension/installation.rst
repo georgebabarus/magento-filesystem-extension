@@ -25,7 +25,7 @@ Each extension is available in Magento Marketplace individually.
 
     The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
 
-    .. warning::
+    .. important::
 
         There is a further plan to integrate all Magento Community improvements into core codebase.
         By purchasing this extension will move forward this project and plans for achiving better filesystem  abstraction in Magento 2 platform.
