@@ -28,7 +28,7 @@ Each extension is available in Magento Marketplace individually.
     .. important::
 
         There is a further plan to integrate all Magento Community improvements into core codebase.
-        By purchasing this extension will move forward this project and plans for achiving better filesystem  abstraction in Magento 2 platform.
+        By purchasing this extension will move forward this project and plans for achieving better filesystem  abstraction in Magento 2 platform.
 
 .. include:: ./../messages.rst
 

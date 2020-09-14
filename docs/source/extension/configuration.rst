@@ -30,10 +30,10 @@ Mainly the configuration consists of 3 components:
 Application configuration
 ==========================
 
-Sample configuration file could be found under dev directory in Bb_Storage module:
-dev/sample-files/env.php
+Sample configuration file could be found under dev directory in ``Bb_Storage`` module:
+``dev/sample-files/env.php``
 
-The feature flag for media storage is media_storage/enabled.
+The feature flag for media storage is ``media_storage/enabled``.
 
 .. code-block:: php
 
@@ -190,7 +190,7 @@ The feature flag for media storage is media_storage/enabled.
 Directory mapping
 -----------------
 
-Directory mapping link a specific path (eg: media/download from below example) to a main connection. Also allow you to set other available connections.
+Directory mapping link a specific path (eg: ``media/download`` from below example) to a main connection. Also allow you to set other available connections.
 
 .. code-block:: php
 
@@ -227,7 +227,7 @@ main_driver                 string                  is the main driver used for 
 driver_configs              array|null              Other available drivers and driver_configs for specific directory. Consist of mapping of diver code as key to a available driver config under storage_config/driver_configs as value
 =========================  =======================  ======================================================
 
-Additional directory configuration are located under media_storage/directories/configs. This configs are located by directory path and driver code.
+Additional directory configuration are located under ``media_storage/directories/configs``. This configs are located by directory path and driver code.
 
 .. code-block:: php
 
@@ -352,7 +352,6 @@ Admin panel configuration
 ==========================
 
 For now there are no configuration in admin panel. See roadmap for more details.
-
 
 
 .. include:: ./../all-pages/available-links.rst
