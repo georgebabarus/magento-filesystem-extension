@@ -16,11 +16,11 @@ For now available configuration are inserted into the deployment config file /et
 
 Mainly the configuration consists of 3 components:
 
-    * driver_configs which are configurations related to connection to the filesystem provider
+    * ``driver_configs`` which are configurations related to connection to the filesystem provider
 
-    * directories -> mapping - in this path you will be able to define new directories paths or overwrite existing ones under ./pub directory
+    * ``directories -> mapping`` - in this path you will be able to define new directories paths or overwrite existing ones under ./pub directory
 
-    * directories -> configs - in this path you can configure additional settings related to specified directory and driver. eg: custom endpoint delivery path
+    * ``directories -> configs`` - in this path you can configure additional settings related to specified directory and driver. eg: custom endpoint delivery path
 
 
 .. include:: ./../messages.rst
