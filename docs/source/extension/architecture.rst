@@ -48,7 +48,7 @@ Nevertheless the business logic is not changed, and cloud storage services are i
 Resized image delivery
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Resizing images could be performed on magento /media path similar with the case when files were on disk. The difference is that for mapped directories to a cloud storage, now, will read the files using the proper driver.
+Resizing images could be performed on magento /media path similar with the case when files were on disk. The difference is that, for directories mapped to a cloud storage, files will be loaded using the proper driver for the service.
 
 A better way could be to have this path behind a reverse proxy configuration. Sample configuration is provided for nginx server.
 
@@ -57,7 +57,7 @@ The proxy can be implemented as follow:
     * try to deliver the file from storage system by a proxy_pass call
     * when missing try to process the image using Magento standard path /media/*
     * save result to storage system
-    * return to user
+    * send the file to user
 
 .. image:: _static/architecture/frontend-image-delivery.png
   :alt: Upload image for product or CMS blocks
@@ -68,6 +68,8 @@ Frontend image delivery for original images
 
 Original images could be delivered directly from storage system, or the CDN in front of it, by configuring the base media url in admin configuration under Store -> Configuration.
 
+There is a known limitation here for using multiple storage containers for mapping existing media directory, because the url for cms blocks and page is constructed using the base same url as product images.
+This mean, for now, core media directory could be mapped to only one remote directory, CMS and product page should reside in same cloud storage container.
 
 Infrastructure architecture
 ============================

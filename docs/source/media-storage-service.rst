@@ -45,3 +45,6 @@ Architecture
 
 .. image:: extension/_static/architecture/frontend-image-delivery.png
   :alt: Upload image for product or CMS blocks
+
+
+.. include:: ./all-pages/available-links.rst

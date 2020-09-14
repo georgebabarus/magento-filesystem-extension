@@ -64,4 +64,4 @@ This EULA agreement, and any dispute arising out of or in connection with this E
 https://www.eulatemplate.com/live.php?token=JYiXx0cWiJ702I1tZARfiEhm0aGwO3nT
 
 
-.. include:: ./../all-pages/available-links.rst
+.. include:: ./all-pages/available-links.rst

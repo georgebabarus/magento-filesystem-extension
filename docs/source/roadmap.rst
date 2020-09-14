@@ -34,4 +34,4 @@ Future work
         All items marked with this tag are not part of a planned release
 
 
-.. include:: ./../all-pages/available-links.rst
+.. include:: ./all-pages/available-links.rst

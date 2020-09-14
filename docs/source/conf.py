@@ -49,6 +49,12 @@ autosectionlabel_prefix_document = True
 
 templates_path = ['_templates']
 html_static_path = ['_static']
+html_context = {
+    'css_files': [
+        '_static/theme_overrides.css',
+        ],
+     }
+
 
 source_suffix = {
     '.rst': 'restructuredtext',

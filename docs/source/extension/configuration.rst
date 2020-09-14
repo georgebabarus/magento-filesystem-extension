@@ -220,6 +220,12 @@ Directory mapping link a specific path (eg: media/download from below example) t
         ]
     ]
 
+=========================  =======================  ======================================================
+Field                      Data type                Description
+=========================  =======================  ======================================================
+main_driver                 string                  is the main driver used for the directory, this will be always used unless, is explicitly specified to use another one form the bellow available driver configs.
+driver_configs              array|null              Other available drivers and driver_configs for specific directory. Consist of mapping of diver code as key to a available driver config under storage_config/driver_configs as value
+=========================  =======================  ======================================================
 
 Additional directory configuration are located under media_storage/directories/configs. This configs are located by directory path and driver code.
 
@@ -244,25 +250,14 @@ Additional directory configuration are located under media_storage/directories/c
         ]
     ]
 
-
-* directory_prefix
-    * required
-    * string, not empty
-    * the prefix on the destination filesystem relative to the root location
-* overwrite_base_url
-    * not required
-    * bool true/false
-    * change Magento base url configured in store config with the one configured on driver
-
-* reverse_proxy_path
-    * not required
-    * string, empty allowed
-    * if overwrite_base_url is false Magento base url will be prefixed with this path
-
-* fallback_directory
-    * not required
-    * array
-    * will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
+=========================  =======================  ======================================================
+Field                      Data type                Description
+=========================  =======================  ======================================================
+directory_prefix            string, required        the prefix on the destination filesystem relative to the root location
+overwrite_base_url          bool|null               change Magento base url configured in store config with the one configured on driver
+reverse_proxy_path          string|null             if overwrite_base_url is false Magento base url will be prefixed with this path
+fallback_directory          array|null              will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
+=========================  =======================  ======================================================
 
 .. _configuration/connection:
 
@@ -294,6 +289,18 @@ Connection details may be different depending on the Driver used for the service
             ]
         ]
     ]
+
+=========================  =======================  ======================================================
+Field                      Data type                Description
+=========================  =======================  ======================================================
+driver_code                 string, required        identify the driver class need, registered in di.xml
+stream_code                 string|null             some drivers are using stream related php function and you need to specify 3 letters unique code for each connection
+region                      string|null             this is needed for S3 driver
+bucket                      string|null             this is needed for S3 driver
+credentials                 array|null              credentials consist of key and secret for S3 driver
+endpoint                    array|null              origin endpoint is the url used for API calls with credentials, frontend endpoint is used to serve public
+debug                       bool|null               debug mode is doing logs on requests made to storage service
+=========================  =======================  ======================================================
 
 
 Web-server configuration

@@ -10,13 +10,13 @@
 Getting Started
 ****************
 
-Before starting and purchasing extensions please read carefully the documentation and ask questions if this extensions cover your needs.
+Before starting and purchasing extensions please read carefully the documentation to see if this extensions covers your needs.
 
 Each extension is available in Magento Marketplace individually.
 
     * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_StorageMarketplace| and the needed filesystem driver eg: |ShopBb_StorageS3Marketplace|
 
-    * If you would like to overwrite some of Magento Core features or create a mapping for exiting directory to a external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this |ShopBb_StorageOverwritesMarketplace|
+    * If you would like to create a mapping of some of Magento Core directories to a external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this |ShopBb_StorageOverwritesMarketplace|
 
     .. warning::
 
@@ -27,8 +27,8 @@ Each extension is available in Magento Marketplace individually.
 
     .. warning::
 
-        By purchasing this extension will move forward this project of improving Magento Community abstraction on filesystem component.
-
+        There is a further plan to integrate all Magento Community improvements into core codebase.
+        By purchasing this extension will move forward this project and plans for achiving better filesystem  abstraction in Magento 2 platform.
 
 .. include:: ./../messages.rst
 
@@ -71,7 +71,18 @@ Installation process
 Using composer
 --------------
 
-When using custom storage drivers for custom development:
+First you have to register composer repository using provided username and password:
+
+.. code-block:: json
+
+    {
+        "repo.asset42.com": {
+            "username": "<username>",
+            "password": "<password>"
+        }
+    }
+
+In case you need filesystem integration only for custom development:
 
 .. code-block:: json
 
@@ -85,7 +96,7 @@ When using custom storage drivers for custom development:
     }
 
 
-When you want to also overwrite Magento's core modules you should add Bb_StorageOverwrites module.
+If you want to have mapping on Magento core directories you should also add Bb_StorageOverwrites module.
 
 .. code-block:: json
 
@@ -99,16 +110,6 @@ When you want to also overwrite Magento's core modules you should add Bb_Storage
         "..."
     }
 
-Register composer repository using provided username and password:
-
-.. code-block:: json
-
-    {
-        "repo.asset42.com": {
-            "username": "<username>",
-            "password": "<password>"
-        }
-    }
 
 Install new modules
 
@@ -130,13 +131,13 @@ One way of doing this is by creating a local repository with your original code 
     $ git init
     $ git commit -m "original version"
 
-Make the changes your are planning to submit, and then create a file with those changes and the name of the version
+Make the changes your are planning to submit, and create a patch file with those changes:
 
 .. code-block:: shell
 
     $ git diff --no-prefix > describe-problem-vx.x.x.patch
 
-    // you also can apply the path on your installation also until the issue will be fix
+    // you also can apply the path on your installation until the issue will be fix
     $ patch -p0 < describe-problem-vx.x.x.patch
 
 

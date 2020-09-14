@@ -44,13 +44,15 @@ Images delivery
 
 As already discussed, with this modules we manage two types of images:
 
-* resized/processed images that should be delivered using a proxy that can grab the original version of image process it, save the result into storage service for later use and return
+* resized/processed images that should be delivered using a proxy that can grab the original version of image, process it, save the result into storage service for later use and in the end send results.
 
     .. image:: _static/demo/frontend-demo.png
       :height: 300px
       :alt: Frontend demo
 
+
     * if debug mode is configured in proxy configuration, you can see that the request goes to actual needed image from cloud
+
 
     .. image:: _static/demo/cloud-storage-mapping.png
       :height: 300px
