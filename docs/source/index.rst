@@ -6,12 +6,14 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
+.. include:: introduction.rst
+
 .. include:: messages.rst
 
 .. toctree::
    :caption: Magento 2 Extension
 
-   introduction
+   Introduction <https://docs.magento.asset42.com/en/latest/index.html>
    details
    extension/architecture
    extension/installation

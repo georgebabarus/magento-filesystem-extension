@@ -30,6 +30,8 @@ With this idea in mind you can identify some advantages for using it in e-commer
 
 `Read more about Magento 2 headless implementation. <https://magento.com/blog/best-practices/future-headless/>`_
 
+.. include:: messages.rst
+
 Use cases
 =========
 
