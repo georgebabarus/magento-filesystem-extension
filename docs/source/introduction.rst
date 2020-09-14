@@ -6,4 +6,8 @@
     :keywords lang=en:
         file storage service, cloud, integration, setup, configuration, magento
 
+************
+Introduction
+************
+
 .. include:: ../README.rst

@@ -5,9 +5,6 @@
 Magento filesystem component extension
 ***************************************
 
-Introduction
-============
-
 Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem (eg: external filesystems like Amazon Simple Storage Service - S3) for core or custom modules.
 
 There are few touch points that are not abstracted enough as you could see in current documentation, and this storage extensions covers this, to allow cloud object storage service integration into Magento 2.
