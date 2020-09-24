@@ -74,3 +74,5 @@ Although most changes are likely to be minor, Magento filesystem component exten
 Credit & Contact Information
 ----------------------------
 This privacy policy was created at privacyterms.io. If you have any questions about our Privacy Policy, please contact us via email or phone.
+
+https://privacyterms.io/view/JWMolsf5-8kowWOpA-oumJ8d/
