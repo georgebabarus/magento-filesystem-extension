@@ -4,26 +4,26 @@
 Introduction
 ============
 
-Magento 2.4 version almost has already in place filesystem abstraction needed to implement and integrate new filesystem (eg: external filesystems like Amazon Simple Storage Service - S3) for core or custom modules.
+Magento 2.4 version has already in place the filesystem abstraction needed to implement and integrate new filesystems (eg: external file systems like Amazon Simple Storage Service - S3) for Magento's core modules or custom modules.
 
-There are few touch points that are not abstracted enough as you could see in current documentation, and this storage extensions covers this, to allow cloud object storage service integration into Magento 2.
+There are few touchpoints that are not abstracted enough as you could see in the current documentation, and this extension covers this subject, to allow cloud object storage service integration into Magento 2.
 
-In many cases existing Database files storage could not be useful and definitively is not a optimal implementation since it is doing a sync back to local filesystem on missing resource.
+In many cases, existing Database files storage could not be useful, and definitively is not an optimal implementation since it is doing sync back to the local filesystem on missing resources.
 
-The ultimate scope of this extensions is to extract static files storage as microservice for Magento platform, decoupling files storage system from compute system, and, in same time providing more flexibility in web asset compression and processing.
+The ultimate scope of these extensions is to extract static files storage as a microservice for the Magento 2 platform, decoupling files storage system of compute system, and, at the same time providing more flexibility in web asset compression, processing and delivery.
 
-Read the `documentation <https://docs.magento.asset42.com>`_ to see some of the key advantages of using this Magento 2 extensions to integrate with various cloud file storage services in a platform agnostic manner.
+Read the `documentation <https://docs.magento.asset42.com>`_ to see some of the key advantages of using these Magento 2 extensions to integrate with various cloud file storage services in a platform-agnostic manner.
 
-What is covered with this extensions?
--------------------------------------
+What is covered with these extensions?
+--------------------------------------
 
-* Decouple file storage system form compute systems and scale them independently.
+* Decouple file storage system form compute component and scale them independently.
 
       Install all Bb_Storage, Bb_StorageOverwrites, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable modules.
 
       Install one of the filesystem driver module eg: Bb_StorageS3.
 
-      A driver will be basically a class implementing basic operations read/write on files or directories. (see: Magento\Framework\Filesystem\DriverInterface)
+      A filesystem driver is a class implementing basic operations (read, write, move etc.) on files or directories. (see: Magento\Framework\Filesystem\DriverInterface)
 
       Configure directory mapping to save and serve files directly from storage service.
 
@@ -36,40 +36,41 @@ What is covered with this extensions?
         * media/captcha could be kept on disk filesystem
 
 
-Currently there are 6 Magento modules developed to achieve fully abstracted filesystem implementation:
+Currently, there are 6 Magento modules developed to achieve fully abstracted filesystem implementation:
 
 .. important::
 
     All extension are available on `Magento Marketplace <https://marketplace.magento.com/>`_.
+
     `Read more about what you should purchase and install for your scenario <https://docs.magento.asset42.com/en/latest/extension/installation.html>`_
 
-* ``Bb_Storage`` is the core module implementing most of business logic:
+* ``Bb_Storage`` is the core module implementing most of the business logic:
 
     * directories mapping
-    * adding custom media directories for new modules (eg: you want to store some reports in Azure Blob storage, you can configure a new directory for this report)
+    * configure new remote media directories for new modules (eg: you want to store some reports in Azure Blob storage, you can configure a new directory for this report)
     * use the media storage system of your choice for any given directory or subdirectory
-    * image resize in-place without sync back to local filesystem the file (this require having the same configuration for main directory and destination of resized files)
+    * image resize in-place without sync back to local filesystem (this require having the same configuration for the main directory and the destination of resized files)
     * :term:`OOB` this module can be used in custom modules, none of Magento core features are touched
     * allow new directory configuration for custom development
 
 ``Bb_StorageOverwrites``
 
-    * allow Bb_Storage features on built-in media directories
+    * allows Bb_Storage features on built-in media directories
 
 ``Bb_StorageCms``
 
     * configure Magento_Cms module to use Bb_Storage
-    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
 ``Bb_StorageCatalog``
 
     * configure Magento_Catalog module to use Bb_Storage
-    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
 ``Bb_StorageDownloadable``
 
     * Allow downloadable files to be saved in a different non-public media storage
-    * fix some week parts on Magento core components that are not using driver object to execute basic actions on files
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
 ``Bb_StorageS3``
 
