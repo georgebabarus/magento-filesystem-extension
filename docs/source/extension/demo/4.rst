@@ -9,7 +9,7 @@
 CMS pages content
 -----------------
 
-Images in CMS pages are only saved in storage service, and served using the public URL of the storage service.
+Images in CMS pages are only saved in storage service and served using the public URL of the storage service.
 
 .. image:: ./../_static/gif/cms-pages-images.gif
   :height: 300px

@@ -10,24 +10,24 @@
 Extensibility
 *************
 
-The extension is exposing extended interface (API) to execute filesystem operations, there for, it's main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
+The extension is exposing extended interface (API) to execute filesystem operations, therefore, it's the main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
 
-Instead of using \Magento\Framework\Filesystem object you will need to use \Bb\Storage\Framework\Filesystem or \Bb\Storage\Api\Filesystem\ExtendedFilesystemInterface.
+Instead of using \Magento\Framework\Filesystem object, you will need to use \Bb\Storage\Framework\Filesystem or \Bb\Storage\Api\Filesystem\ExtendedFilesystemInterface.
 
 .. include:: ./../messages.rst
 .. contents:: Table of Contents
 
-Extend filesystem to achieve more from shop
-===========================================
+Extend filesystem to achieve more from your shop
+================================================
 
-Any other development that use filesystem and place files under media directory will work using  one of cloud storage driver as long as the directory is configured.
+Any other development that uses filesystem and place files under media directory will work using one of the cloud storage drivers as long as the directory is configured.
 
-Basically site administrator decide if the files are store locally or on cloud storage depending on a configuration folder mapping for filesystem drivers.
+Basically, the site administrator decides if the files are store locally or on cloud storage depending on a configuration folder mapping for filesystem drivers.
 
 Built with extensibility in mind
 --------------------------------
 
-Basically any remote file storage can work on top of this Magento Storage extension, as long as a integration driver is developed for the particular service.
+Any remote file storage can work on top of this Magento Storage extension, as long as an integration driver is developed for the particular service.
 
 All needed custom development for new integration will be a PHP class to implement this interface \Magento\Framework\Filesystem\DriverInterface
 
@@ -39,7 +39,7 @@ Create new filesystem driver
 -----------------------------
 
 Simply implement all methods of this interface \Bb\Storage\Framework\Filesystem\DriverInterface.
-After this step you can register the class under env.php configuration for media storage under driver key of connections configuration.
+After this step, you can register the class under env.php configuration for media storage under the driver key of connections configuration.
 See: bb/mage-file-storage/dev/sample-files/env.php
 
 .. code-block:: php
@@ -109,7 +109,7 @@ See: bb/mage-file-storage/dev/sample-files/env.php
     }
 
 
-All configuration available and explained :ref:`here<configuration/connection>` are available for the newly implemented driver.
+All configurations available and explained :ref:`here<configuration/connection>` are available for the newly implemented driver.
 
 
 .. include:: ./../all-pages/available-links.rst

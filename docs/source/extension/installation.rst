@@ -10,25 +10,25 @@
 Getting Started
 ****************
 
-Before starting and purchasing extensions please read carefully the documentation to see if this extensions covers your needs.
+Before starting and purchasing extensions please read carefully the documentation to see if these extensions cover your needs.
 
 Each extension is available in Magento Marketplace individually.
 
     * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_StorageMarketplace| and the needed filesystem driver eg: |ShopBb_StorageS3Marketplace|
 
-    * If you would like to create a mapping of some of Magento Core directories to a external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this |ShopBb_StorageOverwritesMarketplace|
+    * If you would like to create a mapping of some of Magento Core directories to an external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this extension |ShopBb_StorageOverwritesMarketplace|
 
     .. warning::
 
-        |ShopBb_StorageOverwritesMarketplace| is currently on beta phase so it will possibly affect some of Magento core features or 3rd party modules.
+        |ShopBb_StorageOverwritesMarketplace| is currently on the alpha phase so it will possibly affect some of Magento core features or 3rd party modules.
 
 
     The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
 
     .. important::
 
-        There is a further plan to integrate all Magento Community improvements into core codebase.
-        By purchasing this extension will move forward this project and plans for achieving better filesystem  abstraction in Magento 2 platform.
+        There is a further plan to integrate all Magento Community improvements into the core codebase.
+        By purchasing this extension will move forward this project and plan for achieving better filesystem abstraction in Magento 2 platform.
 
 .. include:: ./../messages.rst
 
@@ -122,9 +122,7 @@ Install new modules
 Contribution
 ------------
 
-In case you are using this extensions from composer repository you can consider contributing with code patches on the issues you already fixed.
-
-One way of doing this is by creating a local repository with your original code version you are using on your installation (vx.x.x):
+One way of contributing to this project is by creating a local repository with your original code version you are using on your installation (vx.x.x):
 
 .. code-block:: shell
 
@@ -139,9 +137,6 @@ Make the changes your are planning to submit, and create a patch file with those
 
     // you also can apply the path on your installation until the issue will be fix
     $ patch -p0 < describe-problem-vx.x.x.patch
-
-
-
 
 
 .. include:: ./../all-pages/available-links.rst

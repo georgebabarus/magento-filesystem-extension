@@ -15,7 +15,7 @@ Update catalog product image directly in Minio - compatible with S3 API  media s
   :height: 300px
   :alt: Catalog product edit
 
-Resized images are served on demand directly from storage service, without checking application local disk.
+Resized images are served on-demand directly from storage service, without checking the application local disk.
 
 .. image:: ./../_static/gif/product-resized-image-cache.gif
   :height: 300px

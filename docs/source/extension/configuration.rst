@@ -12,9 +12,9 @@
 Configuration
 *************
 
-For now available configuration are inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
+For now available configuration is inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
 
-Mainly the configuration consists of 3 components:
+The configuration consists mainly of 3 components:
 
     * ``driver_configs`` which are configurations related to connection to the filesystem provider
 
@@ -190,7 +190,7 @@ The feature flag for media storage is ``media_storage/enabled``.
 Directory mapping
 -----------------
 
-Directory mapping link a specific path (eg: ``media/download`` from below example) to a main connection. Also allow you to set other available connections.
+Directory mapping link a specific path (eg: ``media/download`` from the below example) to the main connection. Also, allow you to set other available connections.
 
 .. code-block:: php
 
@@ -224,10 +224,10 @@ Directory mapping link a specific path (eg: ``media/download`` from below exampl
 Field                      Data type                Description
 =========================  =======================  ======================================================
 main_driver                 string                  is the main driver used for the directory, this will be always used unless, is explicitly specified to use another one form the bellow available driver configs.
-driver_configs              array|null              Other available drivers and driver_configs for specific directory. Consist of mapping of diver code as key to a available driver config under storage_config/driver_configs as value
+driver_configs              array|null              Other available drivers and driver_configs for a specific directory. Consist of mapping of diver code as the key to an available driver config under storage_config/driver_configs as value.
 =========================  =======================  ======================================================
 
-Additional directory configuration are located under ``media_storage/directories/configs``. This configs are located by directory path and driver code.
+Additional directory configuration are located under ``media_storage/directories/configs``. These configs are located by directory path and driver code.
 
 .. code-block:: php
 
@@ -254,9 +254,9 @@ Additional directory configuration are located under ``media_storage/directories
 Field                      Data type                Description
 =========================  =======================  ======================================================
 directory_prefix            string, required        the prefix on the destination filesystem relative to the root location
-overwrite_base_url          bool|null               change Magento base url configured in store config with the one configured on driver
-reverse_proxy_path          string|null             if overwrite_base_url is false Magento base url will be prefixed with this path
-fallback_directory          array|null              will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in first location
+overwrite_base_url          bool|null               change Magento base URL configured in store config with the one configured on driver
+reverse_proxy_path          string|null             if overwrite_base_url is false Magento base URL will be prefixed with this path
+fallback_directory          array|null              will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in the first location
 =========================  =======================  ======================================================
 
 .. _configuration/connection:
@@ -264,7 +264,7 @@ fallback_directory          array|null              will contain an array of dir
 Connection configuration
 ------------------------
 
-Connection details may be different depending on the Driver used for the service.
+Connection details may be different depending on the Driver used for the service. This is an example of connection details for Amazon S3 filesystem driver.
 
 .. code-block:: php
 
@@ -294,11 +294,11 @@ Connection details may be different depending on the Driver used for the service
 Field                      Data type                Description
 =========================  =======================  ======================================================
 driver_code                 string, required        identify the driver class need, registered in di.xml
-stream_code                 string|null             some drivers are using stream related php function and you need to specify 3 letters unique code for each connection
+stream_code                 string|null             some drivers are using stream related PHP function and you need to specify 3 letters unique code for each connection
 region                      string|null             this is needed for S3 driver
 bucket                      string|null             this is needed for S3 driver
 credentials                 array|null              credentials consist of key and secret for S3 driver
-endpoint                    array|null              origin endpoint is the url used for API calls with credentials, frontend endpoint is used to serve public
+endpoint                    array|null              origin endpoint is the URL used for API calls with credentials, frontend endpoint is used to serve public
 debug                       bool|null               debug mode is doing logs on requests made to storage service
 =========================  =======================  ======================================================
 
@@ -351,7 +351,6 @@ Web-server configuration
 Admin panel configuration
 ==========================
 
-For now there are no configuration in admin panel. See roadmap for more details.
-
+For now, there is no configuration in the admin panel. See the roadmap for more details.
 
 .. include:: ./../all-pages/available-links.rst

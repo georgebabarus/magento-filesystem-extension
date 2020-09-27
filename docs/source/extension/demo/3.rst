@@ -10,7 +10,7 @@
 Products CMS content
 ---------------------
 
-See the direct url of the image saved in Mino storage service, and the relative path used in admin panel.
+See the direct URL of the image saved in Minio storage service, and the relative path used in the admin panel.
 
 .. image:: ./../_static/gif/product-cms.gif
   :height: 300px

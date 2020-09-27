@@ -54,19 +54,20 @@ Magento filesystem component extension
    :caption: License
 
    license
+   privacy-policy
 
 Glossary
 --------
 
 .. glossary::
     OOB
-        Works out of the box - without any particular configuration then setting up the storage credentials.
+        Works out of the box - without any additional configuration except setting up the storage credentials.
 
     NEXT_MINOR_RELEASE
-        The referred item is part of next minor release plan.
+        The referred item is part of the next minor release plan.
 
     NEXT_MAJOR_RELEASE
-        The referred item is part of next major release plan.
+        The referred item is part of the next major release plan.
 
 
 .. include:: ./all-pages/available-links.rst
