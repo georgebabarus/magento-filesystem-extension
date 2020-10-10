@@ -42,7 +42,7 @@ There are few questions that could be raised related to the subject and the actu
 
 Having microservice responsible for storage, processing, and delivery of all static content is a happy case that allows developers to focus on scaling independently compute and storage systems.
 
-Also, having a microservice specialized in storing and delivering static files, allows improving this area independently. It is clear now, that this may be a big plus because website performance affects customer experience, conversions, and advertisement costs. (lately, advertisers are more and more careful about website performance)
+Also, having a specialized microservice in storing and delivering static files, allows improving this area independently. It is clear now, that this may be a big plus because website performance affects customer experience, conversions, and advertisement costs. (lately, advertisers are more and more careful about website performance)
 
 :ref:`Read more about Magento Files Storage as a Microservice for Magento 2. <mss>`
 

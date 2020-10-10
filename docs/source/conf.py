@@ -15,7 +15,7 @@ from sphinx.locale import _
 import recommonmark
 from recommonmark.transform import AutoStructify
 
-project = u'Magento 2 Extended Filesystem'
+project = u'Filesystem For Cloud Integration for Magento 2'
 slug = re.sub(r'\W+', '-', project.lower())
 version = __version__
 release = __version__

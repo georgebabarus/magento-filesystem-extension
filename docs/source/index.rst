@@ -6,9 +6,9 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
-***************************************
-Magento filesystem component extension
-***************************************
+******************************************
+Cloud Filesystem Integration for Magento 2
+******************************************
 
 .. include:: messages.rst
 
