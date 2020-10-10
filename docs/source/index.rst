@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en:
-        Magento 2 File Storage Extension easy to use, extendable and configurable is all you need to move any media file to a cloud storage service like Amazon S3
+        File Storage Extension for Magento 2 easy to use, extendable and configurable is all you need to move any media file to a cloud storage service like Amazon S3
 
 .. meta::
     :keywords lang=en:
@@ -13,7 +13,7 @@ Cloud Filesystem Integration for Magento 2
 .. include:: messages.rst
 
 .. toctree::
-   :caption: Magento 2 Extension
+   :caption: Filesystem extension for Magento 2
 
    introduction
    details
@@ -23,7 +23,7 @@ Cloud Filesystem Integration for Magento 2
    extension/demo
 
 .. toctree::
-    :caption: Magento Amazon S3 integration
+    :caption: Amazon S3 integration for Magento 2
 
     amazon-s3/integration
 
@@ -33,7 +33,7 @@ Cloud Filesystem Integration for Magento 2
     custom-development/extensibility
 
 .. toctree::
-    :caption: Magento Storage Service (M2SS)
+    :caption: Storage Service for Magento 2 (M2SS)
 
     media-storage-service
 

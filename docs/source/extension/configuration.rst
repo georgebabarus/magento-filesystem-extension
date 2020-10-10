@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en:
-        Magento 2 File Storage configuration for cloud storage services
+        File Storage configuration for cloud storage services in Magento 2
 
 .. meta::
     :keywords lang=en:

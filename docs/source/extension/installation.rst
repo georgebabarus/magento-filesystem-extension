@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en:
-        Getting started with Magento 2 cloud file storage service integration
+        Getting started with cloud file storage service integration for Magento 2
 
 .. meta::
     :keywords lang=en:
