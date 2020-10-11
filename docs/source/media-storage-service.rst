@@ -24,14 +24,14 @@ This M2SS service is in charge of:
     * resizing images on-demand or in the background after upload
     * serve optimized resources using CDN
 
-Magento project will use Magento Storage Extension to write media files directly to the cloud storage service of choice by using the proper driver implemented or using a custom one.
+Magento project will use Remote Filesystem Integration extension to write media files directly to the cloud storage service of choice by using the proper driver implemented or using a custom one.
 
 As long as images are uploaded, no other requests are made to the storage service, the URL is generated in Magento but the resource is only served from MSS.
 
 Subscribe for news on this topic
 =================================
 
-Subscribe for updates on this topic and information about the release of the next Magento 2 Storage Service.
+Subscribe for updates on this topic and information about the release of the next Storage Service for Magento 2.
 
 Soon we will come with a beta program and you may benefit from attractive enrolment discounts.
 

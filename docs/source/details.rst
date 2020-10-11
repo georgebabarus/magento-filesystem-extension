@@ -17,7 +17,7 @@ For example:
     * storing CMS media files directly in a cloud object storage (like Amazon S3 or Azure Files) without touching the server disk could be achieved with little effort :ref:`explained here <cms>`.
     * all files that are served raw could easily be served directly from there or through a built-in or third-party CDN.
     * products media files could also be stored in a cloud object storage, but in this case, the resized images could be served through a reverse proxy server with fallback on the resizing endpoint.
-    * even better, you can extract web asset storing and processing (eg: image resizing, compression) features as a microservice and reduce Magento complexity.
+    * even better, you can extract web asset storing and processing (eg: image resizing, compression) features as a microservice and reduce the Magento complexity.
 
 There are plenty of cloud object storage services (for static files) offered with various features, all having common features like:
 
@@ -181,13 +181,13 @@ Having multiple cloud objects buckets mapped to different media level directorie
 Known issues
 ============
 
-Overwriting Magento media location (or another core directory) may cause some errors in modules not consistently using \\Magento\\Framework\\Filesystem for directory and file operations (including Magento Core modules).
+Overwriting the Magento media location (or another core directory) may cause some errors in modules not consistently using \\Magento\\Framework\\Filesystem for directory and file operations (including Magento Core modules).
 
 In some cases, operations on files or directories are performed directly with PHP functions, or \\Magento\\Framework\\Filesystem\\DriverInterface objects are obtained directly from ObjectManager. Obtaining a driver object form the filesystem object will avoid this type of problem.
 
 Most of the inconsistencies from Magento core modules are fixed in Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable modules, and is part of the plan to include these improvements in the Magento Community project.
 
-However overwriting Magento core directories is not mandatory, because you can configure new directories for custom implementation with the base module Bb_Storage and the module implementing the driver of your choice eg: Bb_StorageS3.
+However overwriting the Magento core directories is not mandatory, because you can configure new directories for custom implementation with the base module Bb_Storage and the module implementing the driver of your choice eg: Bb_StorageS3.
 
 This module is not yet compatible with New Magento Media Gallery.
 
@@ -204,7 +204,7 @@ Latest releases
 
     1.0.0 - proof of concept
           - Bb_Storage could be installed independently and will allow custom/new directories for new modules
-          - To overwrite Magento storage following modules should be installed (are dependent on each other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
+          - To overwrite the Magento storage following modules should be installed (are dependent on each other for now): Bb_StorageOverwrite, Bb_StorageCms, Bb_StorageCatalog, Bb_StorageDownloadable
           - For now, When you create a mapping for a subdirectory, you need to create a configuration for all others subdirectories
           - Available driver Bb_StorageS3 for Amazon S3 like integration. More drivers will be published soon depending on demands. Please request new drivers `on GitHub <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_.
 

@@ -12,14 +12,14 @@
 Architecture
 ****************
 
-Find some ideas related to Magento architecture and the possible solutions for extracting static files to an external filesystem service.
+Find some ideas related to project architecture and the possible solutions for extracting static files as an external filesystem service for Magento 2.
 
 Take this architecture documentation page as a guideline, and not as a part provided by these extensions.
 
 .. include:: ./../messages.rst
 
 .. note::
-    Before going deeper into the development details, please note that this Magento 2 module is extending core module interfaces, keeping in mind the backward compatibility and keeping the breaking changes as low as possible.
+    Before going deeper into the development details, please note that this module for Magento 2 is extending core module interfaces, keeping in mind the backward compatibility and keeping the breaking changes as low as possible.
 
 .. contents:: Table of Contents
 
@@ -33,7 +33,7 @@ File storage architecture for Magento 2
 Upload images in the admin area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Uploading files form user interfaces or programmatically should be compatible with any customization as log as is using Magento standard interfaces and Filesystem object to obtain it.
+Uploading files form user interfaces or programmatically should be compatible with any customization as log as is using the Magento standard interfaces and Filesystem object to obtain it.
 
 Nevertheless, the business logic is not changed, and cloud storage services are integrated using a regular/local filesystem interface.
 
@@ -53,7 +53,7 @@ A better way could be to have this path behind a reverse proxy configuration. A 
 The proxy can be implemented as follow:
 
     * try to deliver the file from the storage system by a proxy_pass call
-    * when missing try to process the image using Magento standard path /media/*
+    * when missing try to process the image using the Magento standard path /media/*
     * save the result to the storage system
     * send the file to user
 

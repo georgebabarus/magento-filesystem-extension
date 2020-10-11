@@ -27,7 +27,7 @@ Basically, the site administrator decides if the files are store locally or on c
 Built with extensibility in mind
 --------------------------------
 
-Any remote file storage can work on top of this Magento Storage extension, as long as an integration driver is developed for the particular service.
+Any remote file storage can work on top of this storage extension for Magento 2, as long as an integration driver is developed for the particular service.
 
 All needed custom development for new integration will be a PHP class to implement this interface \Magento\Framework\Filesystem\DriverInterface
 

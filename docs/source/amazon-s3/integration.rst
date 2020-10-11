@@ -23,8 +23,8 @@ Note that this module depends on the main module bb/mage-file-storage to be able
 For now, only Amazon S3 storage service is supported by this filesystem extension, but many will integration extensions will be available to purchase soon.
 All the news about extension road-map will be published here.
 
-Magento S3 Driver Extension
-===========================
+S3 Driver Extension for Magento 2
+=================================
 
 For Amazon S3 storage service integration in Magento, you will need to purchase an additional extension available on |ShopS3Marketplace|
 

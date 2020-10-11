@@ -22,7 +22,7 @@ Roadmap
             * avoid forcing usage of just one media storage for Catalog and Cms components
 
     v1.2.0 - 1 December 2020
-        * integrate all Magento core refactoring and fixes into the Magento Community project. Here we are talking mainly of places where the local filesystem is taken as granted, and PHP file management functions are called to execute actions that are already implemented in Magento Drivers.
+        * integrate all refactoring and fixes into the Magento Community project. Here we are talking mainly of places where the local filesystem is taken as granted, and PHP file management functions are called to execute actions that are already implemented in Magento Drivers.
 
 Future work
 =================

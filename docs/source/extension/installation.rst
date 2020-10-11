@@ -96,7 +96,7 @@ In case you need filesystem integration only for custom development:
     }
 
 
-If you want to have mapping on Magento core directories you should also add Bb_StorageOverwrites module.
+If you want to have mapping for Magento core directories you should also add Bb_StorageOverwrites module.
 
 .. code-block:: json
 
