@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en:
-        Magento 2 cloud storage integration extension changelog and releases
+        Cloud storage integration extension for Magento 2 - changelog and releases
 
 .. meta::
     :keywords lang=en:

@@ -27,8 +27,8 @@ Take this architecture documentation page as a guideline, and not as a part prov
 Software architecture
 =====================
 
-Magento extension architecture
-------------------------------
+File storage architecture for Magento 2
+---------------------------------------
 
 Upload images in the admin area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

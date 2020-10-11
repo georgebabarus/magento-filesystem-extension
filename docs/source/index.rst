@@ -45,12 +45,6 @@ Remote Filesystem Integration for Magento 2
 
 
 .. toctree::
-   :caption: Technical documentation
-
-   technical/cms
-
-
-.. toctree::
    :caption: License
 
    license
