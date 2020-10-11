@@ -59,7 +59,7 @@ ______________
 
 Depends on AWS SDK composer package, and applies for all S3 like integrations.
 
-.. code-block::
+.. code-block:: php
 
     "aws/aws-sdk-php": "3.x",
 

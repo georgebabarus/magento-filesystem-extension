@@ -6,14 +6,14 @@
     :keywords lang=en:
         Magento 2, file storage, extension, cloud storage, service
 
-******************************************
-Cloud Filesystem Integration for Magento 2
-******************************************
+*******************************************
+Remote Filesystem Integration for Magento 2
+*******************************************
 
 .. include:: messages.rst
 
 .. toctree::
-   :caption: Filesystem extension for Magento 2
+   :caption: Filesystem extension for Magento
 
    introduction
    details
@@ -23,7 +23,7 @@ Cloud Filesystem Integration for Magento 2
    extension/demo
 
 .. toctree::
-    :caption: Amazon S3 integration for Magento 2
+    :caption: Amazon S3 integration
 
     amazon-s3/integration
 
@@ -33,7 +33,7 @@ Cloud Filesystem Integration for Magento 2
     custom-development/extensibility
 
 .. toctree::
-    :caption: Storage Service for Magento 2 (M2SS)
+    :caption: Storage Service for Magento 2
 
     media-storage-service
 
