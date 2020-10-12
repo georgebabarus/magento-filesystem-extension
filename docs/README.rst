@@ -8,9 +8,9 @@ Magento 2.4 version has already in place the filesystem abstraction needed to im
 
 There are few touchpoints that are not abstracted enough as you could see in the current documentation, and this extension covers this subject, to allow cloud object storage service integration into Magento 2.
 
-In many cases, existing Database files storage could not be useful, and definitively is not an optimal implementation since it is doing sync back to the local filesystem on missing resources.
+In many cases, existing Database files storage could not be useful and definitively is not an optimal implementation since it is doing sync back to the local filesystem on missing resources.
 
-The ultimate scope of these extensions is to extract static files storage as a microservice for the Magento 2 platform, decoupling files storage system of compute system, and, at the same time providing more flexibility in web asset compression, processing and delivery.
+The ultimate scope of these extensions is to extract static files storage as a microservice for the Magento 2 platform, decoupling files storage system of compute system, and, at the same time providing more flexibility in web asset compression, processing, and delivery.
 
 Read the `documentation <https://docs.magento.asset42.com>`_ to see some of the key advantages of using these Magento 2 extensions to integrate with various cloud file storage services in a platform-agnostic manner.
 
@@ -23,13 +23,13 @@ What is covered with these extensions?
 
       Install one of the filesystem driver module eg: Bb_StorageS3.
 
-      A filesystem driver is a class implementing basic operations (read, write, move etc.) on files or directories. (see: Magento\Framework\Filesystem\DriverInterface)
+      A filesystem driver is a class implementing basic operations (read, write, move, etc.) on files or directories. (see: Magento\Framework\Filesystem\DriverInterface)
 
       Configure directory mapping to save and serve files directly from storage service.
 
 * Mapping for any media sub-directory to various filesystem services.
 
-    For example you can make following mapping:
+    For example you can make the following mapping:
 
         * media/catalog files to a public AWS S3 bucket
         * media/downloadable could be mapped to a private AWS S3 bucket
@@ -40,7 +40,7 @@ Currently, there are 6 Magento modules developed to achieve fully abstracted fil
 
 .. important::
 
-    All extension are available on `Magento Marketplace <https://marketplace.magento.com/>`_.
+    All extensions are available on `Magento Marketplace <https://marketplace.magento.com/>`_.
 
     `Read more about what you should purchase and install for your scenario <https://docs.magento.asset42.com/en/latest/extension/installation.html>`_
 
@@ -74,7 +74,7 @@ Currently, there are 6 Magento modules developed to achieve fully abstracted fil
 
 ``Bb_StorageS3``
 
-    * implementation of Amazon S3 like api as a Magento filesystem driver
+    * implementation of Amazon S3 like API as a Magento filesystem driver
 
 
 Author
