@@ -7,7 +7,7 @@
         Magento 2, storage, integration, amazon s3, license
 
 End-User License Agreement (EULA) of Asset42 Remote Filesystem integration
-========================================================
+==========================================================================
 
 This copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.

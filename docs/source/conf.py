@@ -88,7 +88,7 @@ html_theme_options = {
     # 'analytics_id': 'UA-54395432-3' # not working for now
 }
 html_theme_path = ["../.."]
-html_logo = "_static/logo-wordmark-light.svg"
+html_logo = "_static/logo-500-100.png"
 html_show_sourcelink = True
 
 htmlhelp_basename = slug
