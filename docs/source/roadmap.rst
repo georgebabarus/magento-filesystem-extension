@@ -15,14 +15,18 @@ Roadmap
 
 .. glossary::
 
-    v1.1.0 - 1 November 2020
-        * break dependency on Catalog, Cms and Downloadable modules in order to allow independent installation and usage.
+    v1.1.0 - 1 December 2020
+        * publish Bb_StorageOverwrites the module in charge of mapping existing directories in Magento to Remote file systems
+        * break the dependency of Bb_StorageCatalog, Bb_StorageCms and Bb_StorageDownloadable modules in order to allow independent installation and usage.
+
             * most probably the media directory will be separated by the type of the module using it
             * multiple frontend URLs based on media storage of subdirectory
             * avoid forcing usage of just one media storage for Catalog and Cms components
 
-    v1.2.0 - 1 December 2020
-        * integrate all refactoring and fixes into the Magento Community project. Here we are talking mainly of places where the local filesystem is taken as granted, and PHP file management functions are called to execute actions that are already implemented in Magento Drivers.
+    v1.2.0 - 1 February 2021
+        * integrate all refactoring and fixes into the Magento Community project.
+
+            * Here we are talking of places where the filesystem component is not properly used in Magento Core: Bb_StorageCatalog, Bb_StorageCms and Bb_StorageDownloadable
 
 Future work
 =================
@@ -31,6 +35,7 @@ Future work
 
 .. glossary::
     future work
+
         All items marked with this tag are not part of a planned release
 
 

@@ -44,7 +44,7 @@ Having microservice responsible for storage, processing, and delivery of all sta
 
 Also, having a specialized microservice allows improving this area independently. It is clear now, that this may be a big plus because website performance affects customer experience, conversions, and advertisement costs. (lately, advertisers are more and more careful about website performance)
 
-:ref:`Read more about Magento Files Storage as a Microservice for Magento 2. <mss>`
+:ref:`Read more about Files Storage as a Microservice for Magento 2. <mss>`
 
 `Subscribe for news related to media storage microservice for Magento 2. <https://magento.asset42.com/file-storage-service>`_
 

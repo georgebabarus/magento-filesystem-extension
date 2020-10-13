@@ -10,36 +10,65 @@
 Extensibility
 *************
 
-The extension is exposing extended interface (API) to execute filesystem operations, therefore, it's the main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
+The extension is exposing extended interface (API) to execute filesystem operations, therefore, the main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
 
-Instead of using \Magento\Framework\Filesystem object, you will need to use \Bb\Storage\Framework\Filesystem or \Bb\Storage\Api\Filesystem\ExtendedFilesystemInterface.
+Instead of using \\Magento\\Framework\\Filesystem object, you will need to use \\Bb\\Storage\\Framework\\Filesystem defined as API preference for \\Bb\\Storage\\Api\\Filesystem\\ExtendedFilesystemInterface.
 
 .. include:: ./../messages.rst
 .. contents:: Table of Contents
 
+
 Extend filesystem to achieve more from your shop
 ================================================
 
-Any other development that uses filesystem and place files under media directory will work using one of the cloud storage drivers as long as the directory is configured.
+The core module Bb_Storage offers the underlying structure of configuring new directories in the Magento application and mapping them to a remote or local filesystem.
 
-Basically, the site administrator decides if the files are store locally or on cloud storage depending on a configuration folder mapping for filesystem drivers.
+Basically, you have to decide if one directory is stored locally or on a cloud storage service, by creating a configuration mapping in env.php file.
 
 Built with extensibility in mind
 --------------------------------
 
-Any remote file storage can work on top of this storage extension for Magento 2, as long as an integration driver is developed for the particular service.
+Any remote filesystem service can work on top of Bb_Storage, as long as an integration driver extension is developed for the particular service.
 
-All needed custom development for new integration will be a PHP class to implement this interface \Magento\Framework\Filesystem\DriverInterface
+In case a driver extension is missing from marketplace, it can be developed implementing \\Bb\\Storage\\Api\\Filesystem\\DriverInterface and register it under di.xml.
 
-
-Custom development based on Bb_Storage
-=======================================
 
 Create new filesystem driver
------------------------------
+=============================
 
-Simply implement all methods of this interface \Bb\Storage\Framework\Filesystem\DriverInterface.
-After this step, you can register the class under env.php configuration for media storage under the driver key of connections configuration.
+* create a new module
+* create a driver class which implements all methods of this interface \Bb\Storage\Api\Framework\Filesystem\DriverInterface.
+* create a factory for your driver class by implementing \\Bb\\Storage\\Api\\Filesystem\\DriverFactoryInterface
+
+    * the create" method of this class you will receive unique directory identifier and all required configuration needed to create new instances for your driver
+
+* register the factory under factory driver pool
+
+    .. code-block:: xml
+
+        <type name="Bb\Storage\Framework\Filesystem\Driver\DriverFactoryPool">
+            <arguments>
+                <argument name="factories" xsi:type="array">
+                    <item name="s3" xsi:type="string">Bb\StorageS3\Filesystem\Driver\S3Factory</item>
+                </argument>
+            </arguments>
+        </type>
+
+* register your driver in the driver pool
+
+    .. code-block:: xml
+
+        <type name="Bb\Storage\Framework\Filesystem\DriverPool">
+            <arguments>
+                <argument name="extraTypes" xsi:type="array">
+                    <item name="s3" xsi:type="string">Bb\StorageS3\Filesystem\Driver\S3</item>
+                </argument>
+            </arguments>
+        </type>
+
+
+After all this step, you can define new directories or create mapping for existing ones using the created driver.
+
 See: bb/mage-file-storage/dev/sample-files/env.php
 
 .. code-block:: php

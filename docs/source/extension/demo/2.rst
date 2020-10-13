@@ -10,7 +10,7 @@
 Downloadable attachments on products
 ------------------------------------
 
-Downloadable product attachments are saved in Amazon S3 storage service, in a private bucket.
+The downloadable product attachments are saved in a private bucket in Amazon S3 storage service.
 
 .. image:: ./../_static/gif/downloadable-products.gif
   :height: 300px
