@@ -33,9 +33,9 @@ File storage architecture for Magento 2
 Upload images in the admin area
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Uploading files form user interfaces or programmatically should be compatible with any customization as log as is using the Magento standard interfaces and Filesystem object to obtain it.
+Uploading files from user interfaces or programmatically should be compatible with any customization as log as is using the Magento standard interfaces and Filesystem object to obtain it.
 
-Nevertheless, the business logic is not changed, and cloud storage services are integrated using a regular/local filesystem interface.
+Nevertheless, the business logic is not changed, and cloud storage services are integrated using a core filesystem interface.
 
 .. image:: _static/architecture/upload-image.png
   :alt: Upload image for product or CMS blocks
@@ -46,9 +46,9 @@ Nevertheless, the business logic is not changed, and cloud storage services are 
 Resized image delivery
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Resizing images could be performed on the Magento /media path similar to the case when files were on disk. The difference is that, for directories mapped to cloud storage, files will be loaded using the proper driver for the service.
+Resizing images could be performed on the Magento /media path, similar to the case when files were on disk. The difference is that, for directories mapped to cloud storage service, files will be loaded using the proper driver for the service.
 
-A better way could be to have this path behind a reverse proxy configuration. A sample configuration is provided for Nginx server.
+A better way could be to have this path behind a reverse proxy configuration. A sample configuration is provided for the Nginx server.
 
 The proxy can be implemented as follow:
 
@@ -66,8 +66,8 @@ Frontend image delivery for original images
 
 Original images could be delivered directly from the storage system, or the CDN in front of it, by configuring the base media URL in admin configuration under Store -> Configuration.
 
-There is a known limitation here for using multiple storage containers for mapping existing media directory because the URL for cms blocks and page is constructed using the base same URL as product images.
-This means, for now, the core media directory could be mapped to only one remote directory, CMS, and product page should reside in the same cloud storage container.
+There is a known limitation here for using multiple storage containers for mapping existing media directory because the URL for cms blocks and page is constructed using the same base URL as product images.
+This means, for now, the core media directory could be mapped to only one remote directory, CMS images and the product page should reside in the same cloud storage container.
 
 Infrastructure architecture
 ============================

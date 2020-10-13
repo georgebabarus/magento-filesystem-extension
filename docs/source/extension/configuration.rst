@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en:
-        File Storage configuration for cloud storage services in Magento 2
+        File Storage configuration for integration of cloud storage services in Magento 2
 
 .. meta::
     :keywords lang=en:
@@ -12,15 +12,15 @@
 Configuration
 *************
 
-For now available configuration is inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
+For now, the available configuration is inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
 
 The configuration consists mainly of 3 components:
 
     * ``driver_configs`` which are configurations related to connection to the filesystem provider
 
-    * ``directories -> mapping`` - in this path you will be able to define new directories paths or overwrite existing ones under ./pub directory
+    * ``directories -> mapping`` - in this path you will be able to define new directories paths or overwrite the existing ones under ./pub directory
 
-    * ``directories -> configs`` - in this path you can configure additional settings related to specified directory and driver. eg: custom endpoint delivery path
+    * ``directories -> configs`` - in this path you can configure additional settings related to specified directory and driver. (e.g.: custom endpoint delivery path)
 
 
 .. include:: ./../messages.rst
@@ -30,7 +30,7 @@ The configuration consists mainly of 3 components:
 Application configuration
 ==========================
 
-Sample configuration file could be found under dev directory in ``Bb_Storage`` module:
+The sample configuration file could be found under the dev directory in ``Bb_Storage`` module:
 ``dev/sample-files/env.php``
 
 The feature flag for media storage is ``media_storage/enabled``.
@@ -190,7 +190,7 @@ The feature flag for media storage is ``media_storage/enabled``.
 Directory mapping
 -----------------
 
-Directory mapping link a specific path (eg: ``media/download`` from the below example) to the main connection. Also, allow you to set other available connections.
+Directory mapping link a specific path (e.g.: ``media/download`` from the below example) to the main connection. Also, allows you to set other available connections.
 
 .. code-block:: php
 
@@ -227,7 +227,7 @@ main_driver                 string                  is the main driver used for 
 driver_configs              array|null              Other available drivers and driver_configs for a specific directory. Consist of mapping of diver code as the key to an available driver config under storage_config/driver_configs as value.
 =========================  =======================  ======================================================
 
-Additional directory configuration are located under ``media_storage/directories/configs``. These configs are located by directory path and driver code.
+Additional directory configuration is located under ``media_storage/directories/configs``. These configs are located by directory path and driver code.
 
 .. code-block:: php
 
@@ -254,7 +254,7 @@ Additional directory configuration are located under ``media_storage/directories
 Field                      Data type                Description
 =========================  =======================  ======================================================
 directory_prefix            string, required        the prefix on the destination filesystem relative to the root location
-overwrite_base_url          bool|null               change Magento base URL configured in store config with the one configured on driver
+overwrite_base_url          bool|null               change the Magento base URL configured in store config with the one configured on driver
 reverse_proxy_path          string|null             if overwrite_base_url is false Magento base URL will be prefixed with this path
 fallback_directory          array|null              will contain an array of directory_code and driver_code representing the fallback solution in case the resource is not found in the first location
 =========================  =======================  ======================================================
@@ -264,7 +264,7 @@ fallback_directory          array|null              will contain an array of dir
 Connection configuration
 ------------------------
 
-Connection details may be different depending on the Driver used for the service. This is an example of connection details for Amazon S3 filesystem driver.
+Connection details may be different depending on the Driver used for the service. This is an example of connection details for the Amazon S3 filesystem driver.
 
 .. code-block:: php
 
