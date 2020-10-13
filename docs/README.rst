@@ -36,7 +36,7 @@ What is covered with these extensions?
         * media/captcha could be kept on disk filesystem
 
 
-Currently, there are 6 Magento modules developed to achieve fully abstracted filesystem implementation:
+Currently, there are 6 modules developed for Magento 2 to achieve fully abstracted filesystem implementation:
 
 .. important::
 
