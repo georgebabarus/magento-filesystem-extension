@@ -15,7 +15,7 @@ You can check :ref:`some application architectures <extension/architecture>` to 
 
 For example:
     * store CMS media files directly on the remote filesystem without touching the server disk.
-    * all the raw files that are served could easily be served directly from there or through a built-in or third-party CDN.
+    * all the raw files could easily be served directly from there or through a built-in or third-party CDN.
     * the products media files could also be stored in a cloud object storage, but in this case, the resized images should be served through a reverse proxy server with a fallback on the resizing endpoint.
     * even better, you can extract the image resize feature as a microservice and reduce your project complexity. Read more about the Magento 2 headless implementation.
 
