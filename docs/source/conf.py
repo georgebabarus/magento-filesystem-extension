@@ -4,7 +4,7 @@ import sys
 import os
 import re
 
-__version__ = '0.0.1'
+__version__ = 'latest'
 if not 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath('custom-development/'))
@@ -15,7 +15,7 @@ from sphinx.locale import _
 import recommonmark
 from recommonmark.transform import AutoStructify
 
-project = u'Magento 2 Filesystem Storage'
+project = u'Remote Filesystem Integration for Magento 2'
 slug = re.sub(r'\W+', '-', project.lower())
 version = __version__
 release = __version__
@@ -34,12 +34,14 @@ extensions = [
     'sphinx_sitemap',
     'sphinxcontrib.images'
 ]
-html_baseurl = 'https://magento-filesystem-extension-docs.readthedocs.io/'
-
+html_baseurl = 'https://docs.magento.asset42.com/'
 # html_baseurl = 'https://magento-file-storage-docs.babarus.ro/'
 # sitemap_url_scheme = "{link}"
+sitemap_filename = "sitemap-all.xml"
 
 html_extra_path = ['robots.txt']
+html_title = project + ''
+
 images_config = {
     'override_image_directive': True
 }
@@ -47,6 +49,12 @@ autosectionlabel_prefix_document = True
 
 templates_path = ['_templates']
 html_static_path = ['_static']
+html_context = {
+    'css_files': [
+        '_static/theme_overrides.css',
+        ],
+     }
+
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -58,7 +66,8 @@ source_parsers = {
 }
 
 exclude_patterns = [
-    'requirements.txt'
+    'requirements.txt',
+    'all-pages'
 ]
 locale_dirs = ['locale/']
 gettext_compact = False
@@ -79,7 +88,7 @@ html_theme_options = {
     # 'analytics_id': 'UA-54395432-3' # not working for now
 }
 html_theme_path = ["../.."]
-html_logo = "_static/logo-wordmark-light.svg"
+html_logo = "_static/logo-500-100.png"
 html_show_sourcelink = True
 
 htmlhelp_basename = slug

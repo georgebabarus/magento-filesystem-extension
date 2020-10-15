@@ -1,0 +1,17 @@
+.. meta::
+    :description lang=en:
+        Cms pages images Demo of Amazon S3 storage integration into Magento 2.
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, demo, integration, amazon s3, azure file storage, blob storage
+
+CMS pages content
+-----------------
+
+Images in CMS pages are only saved in storage service and served using the public URL of the storage service.
+
+.. image:: ./../_static/gif/cms-pages-images.gif
+  :height: 300px
+  :alt: Cms pages images
+

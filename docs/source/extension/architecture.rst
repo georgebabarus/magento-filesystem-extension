@@ -1,11 +1,25 @@
+.. _extension/architecture:
+
+.. meta::
+    :description lang=en:
+        File Storage Architecture abstraction in Magento 2 for better file storage integration interface: more extensible and reusable.
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, architecture, extension, abstraction
+
 ****************
 Architecture
 ****************
 
+Find some ideas related to project architecture and the possible solutions for extracting static files as an external filesystem service for Magento 2.
+
+Take this architecture documentation page as a guideline, and not as a part provided by these extensions.
+
 .. include:: ./../messages.rst
 
 .. note::
-    Before going deeper into the development details, please note that the this Magento 2 module is extending core module interfaces, keeping in mind the backward compatibility and keeping the changes as low asa possible.
+    Before going deeper into the development details, please note that this module for Magento 2 is extending core module interfaces, keeping in mind the backward compatibility and keeping the breaking changes as low as possible.
 
 .. contents:: Table of Contents
 
@@ -13,60 +27,53 @@ Architecture
 Software architecture
 =====================
 
+File storage architecture for Magento 2
+---------------------------------------
 
-Magento extension architecture
-------------------------------
+Upload images in the admin area
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Upload images in admin area
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Uploading files from user interfaces or programmatically should be compatible with any customization as log as is using the Magento standard interfaces and Filesystem object to obtain it.
 
-Uploading files form user interfaces or programmatically at product should be compatible with any customization as log as is using Magento standard interfaces.
-
-Nevertheless the business logic is not changed, and cloud storage services are added using regular/local filesystem interface.
+Nevertheless, the business logic is not changed, and cloud storage services are integrated using a core filesystem interface.
 
 .. image:: _static/architecture/upload-image.png
   :alt: Upload image for product or CMS blocks
 
 .. note::
-    Uploading products attachments for downloadable products works just like uploading the product image showed in the above schema.
+    Uploading product attachments for downloadable products work just like uploading the product image shown in the above schema.
 
-.. note::
-    Features: :term:`WOOB` :term:`v0.0.1`
+Resized image delivery
+^^^^^^^^^^^^^^^^^^^^^^
 
+Resizing images could be performed on the Magento /media path, similar to the case when files were on disk. The difference is that, for directories mapped to cloud storage service, files will be loaded using the proper driver for the service.
 
-Frontend resized image delivery
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Resized images could be delivered directly from storage system after creating the resized image in the main request or return a proxy url responsible to return the image if not exist.
+A better way could be to have this path behind a reverse proxy configuration. A sample configuration is provided for the Nginx server.
 
 The proxy can be implemented as follow:
 
-* nginx config to request it from storage system and create a fallback request in case of error on Magento resize script
-* in case you don't have access to a web server proxy configuration there is a option to return it directly from default Magento image resize script.
+    * try to deliver the file from the storage system by a proxy_pass call
+    * when missing try to process the image using the Magento standard path /media/*
+    * save the result to the storage system
+    * send the file to user
 
 .. image:: _static/architecture/frontend-image-delivery.png
   :alt: Upload image for product or CMS blocks
-
-.. note::
-    :term:`SWSCNO` :term:`v0.0.1`
 
 
 Frontend image delivery for original images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Original images could be delivered directly from storage system, or the CDN in front of it, by configuring the base media url in admin configuration under Store -> Configuration.
+Original images could be delivered directly from the storage system, or the CDN in front of it, by configuring the base media URL in admin configuration under Store -> Configuration.
 
-.. note::
-    :term:`WOOB` :term:`v0.0.1`
+There is a known limitation here for using multiple storage containers for mapping existing media directory because the URL for cms blocks and page is constructed using the same base URL as product images.
+This means, for now, the core media directory could be mapped to only one remote directory, CMS images and the product page should reside in the same cloud storage container.
 
 Infrastructure architecture
 ============================
 
-Ideal infrastructure setup
+Basic infrastructure setup
 --------------------------
-
-.. warning::
-    For now all images within the media folder are saved in the same bucket. Having multiple buckets will allow user to use this extension for downloadable products :term:`future work`
 
 .. image:: _static/architecture/basic-infrastructure-architecture.png
   :alt: Basic infrastructure architecture
@@ -75,11 +82,9 @@ Ideal infrastructure setup
 Possible optimization
 ---------------------
 
-.. warning::
-    This is :term:`future work` and will be detailed soon.
-
 .. image:: _static/architecture/infrastructure-architecture-improved.png
   :alt: Infrastructure architecture improved
 
 
 
+.. include:: ./../all-pages/available-links.rst

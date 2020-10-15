@@ -1,57 +1,75 @@
+.. meta::
+    :description lang=en:
+        File Storage Extension for Magento 2 easy to use, extendable and configurable. Is all you need to move any media file to a cloud storage service like Amazon S3
 
-Magento file storage systems integration for media files
-=========================================================
+.. meta::
+    :keywords lang=en:
+        Magento 2, file storage, extension, cloud storage, service
+
+*******************************************
+Remote Filesystem Integration for Magento 2
+*******************************************
 
 .. include:: messages.rst
 
-Use this Magento module to decouple files storage form compute systems and scale them independently.
-
-Once you have base module installed and configured you can configure already developed storage systems driver, or develop yourself. A driver will be basically a class implementing basic operations: read/write files or directory.
-
-
 .. toctree::
-   :caption: Extension specification
+   :caption: Filesystem extension for Magento
+   :maxdepth: 2
 
    introduction
+   details
    extension/architecture
    extension/installation
    extension/configuration
    extension/demo
 
 .. toctree::
-    :caption: Magento Amazon S3 integration
+    :caption: Driver extensions
+    :maxdepth: 2
 
     amazon-s3/integration
 
 .. toctree::
     :caption: Custom development
+    :maxdepth: 2
 
     custom-development/extensibility
 
 .. toctree::
+    :caption: Storage Service for Magento 2
+    :maxdepth: 2
+
+    media-storage-service
+
+.. toctree::
    :caption: Changelog and planning
+   :maxdepth: 2
+   :hidden:
 
    roadmap
    changelog
 
 
-Glossary
-========
+.. toctree::
+   :caption: License
+   :maxdepth: 2
+   :hidden:
 
-Here are defined some principles you will find during the particular topics on this documentation.
+   license
+   privacy-policy
+
+Glossary
+--------
 
 .. glossary::
-    WOOB
-        Works out of the box - without any particular configuration then setting up the storage credentials.
-
-    SWSCN
-        Some web server configuration needed, with partial support.
-
-    SWSCNO
-        Some web server configuration needed **from performance** perspective, with partial support.
+    OOB
+        Works out of the box - without any additional configuration except setting up the storage credentials.
 
     NEXT_MINOR_RELEASE
-        The referred item is part of next minor release plan.
+        The referred item is part of the next minor release plan.
 
     NEXT_MAJOR_RELEASE
-        The referred item is part of next major release plan.
+        The referred item is part of the next major release plan.
+
+
+.. include:: ./all-pages/available-links.rst

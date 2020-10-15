@@ -1,0 +1,17 @@
+.. meta::
+    :description lang=en:
+        Downloadable product files Demo of Amazon S3 storage integration into Magento 2.
+
+.. meta::
+    :keywords lang=en:
+        Magento 2, demo, integration, amazon s3, azure file storage, blob storage
+
+
+Downloadable attachments on products
+------------------------------------
+
+The downloadable product attachments are saved in a private bucket in Amazon S3 storage service.
+
+.. image:: ./../_static/gif/downloadable-products.gif
+  :height: 300px
+  :alt: Downloadable product files
