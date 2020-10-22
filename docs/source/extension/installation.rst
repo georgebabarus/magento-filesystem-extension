@@ -12,6 +12,8 @@ Getting Started
 
 Before starting and purchasing extensions please read carefully the documentation to see if these extensions cover your needs.
 
+.. contents:: Table of Contents
+
 Each extension is available in Magento Marketplace individually.
 
     * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_StorageMarketplace| and the needed filesystem driver eg: |ShopBb_StorageS3Marketplace|
@@ -29,8 +31,6 @@ Each extension is available in Magento Marketplace individually.
 
             There is a further plan to integrate all Magento Community improvements into the core codebase.
             By purchasing this extension will move forward this project and plan for achieving better filesystem abstraction in Magento 2 platform.
-
-.. contents:: Table of Contents
 
 Software dependencies
 =====================
