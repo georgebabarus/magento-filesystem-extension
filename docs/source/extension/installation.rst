@@ -23,50 +23,141 @@ Each extension is available in Magento Marketplace individually.
         |ShopBb_StorageOverwritesMarketplace| is currently on the alpha phase so it will possibly affect some of Magento core features or 3rd party modules.
 
 
-    The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
+        The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
 
-    .. important::
+        .. important::
 
-        There is a further plan to integrate all Magento Community improvements into the core codebase.
-        By purchasing this extension will move forward this project and plan for achieving better filesystem abstraction in Magento 2 platform.
-
-.. include:: ./../messages.rst
+            There is a further plan to integrate all Magento Community improvements into the core codebase.
+            By purchasing this extension will move forward this project and plan for achieving better filesystem abstraction in Magento 2 platform.
 
 .. contents:: Table of Contents
 
 Software dependencies
 =====================
 
-Magento Modules
----------------
+Bellow you will find both the extension commercial name and the module name (in parentheses), short description of the extension and the dependencies within the extension group, dependency on other Magento modules, and also the dependency on PHP extensions or other software dependency.
 
-* Magento\Catalog
-* Magento\Cms
-* Magento\Downloadable
-* Magento\Framework
-* Magento\MediaStorage
-* Magento\Store
+|ShopBb_Storage|
+----------------
 
-PHP extensions
---------------
+This is the main module, implementing configuration management and extensibility, shortly, most of the business logic for remote filesystem integration:
 
-* Imagick https://www.php.net/manual/en/book.imagick.php
-    This extension is used to resize images on demand, and is mandatory because it allow loading images by content and not by path on disk like GD library does.
+    * directories mapping
+    * configure new remote media directories for new modules (e.g.: you want to store some reports in Azure Blob storage, you can configure a new directory for this report)
+    * use the media storage system of your choice for any given directory or subdirectory
+    * image resize in-place without sync back to local filesystem (this require having the same configuration for the main directory and the destination of resized files)
+    * :term:`OOB` this module can be used in custom modules, none of Magento core features are touched
+
+    .. important::
+
+            Dependencies
+                * Magento Modules
+                    * Magento\Framework
+                    * Magento\MediaStorage
+                    * Magento\Store
+                * Other extensions for Magento
+                    * N/A
+                * PHP extensions
+                    * Imagick https://www.php.net/manual/en/book.imagick.php
+                        This extension is used to resize images on demand, and is mandatory because it allow loading images by content and not by path on disk like GD library does.
+
+|ShopBb_StorageS3|
+------------------
+
+    * implementation of Amazon S3 like API as a Magento filesystem driver
+
+    .. important::
+
+            Dependencies
+                * Magento Modules
+                    * Magento\\Framework
+                    * Magento\\MediaStorage
+                    * Magento\\Store
+                * Other extensions for Magento
+                    * Bb\\Storage - |ShopBb_StorageMarketplace|
+                * Composer package
+                    * aws/aws-sdk-php  3.x
+                * PHP extensions
+                    * N/A
 
 
-S3 Integration
-______________
+|ShopBb_StorageOverwrites|
+--------------------------
 
-Depends on AWS SDK composer package, and applies for all S3 like integrations.
+    * allows Bb_Storage features on built-in media directories
 
-.. code-block:: php
+    .. important::
 
-    "aws/aws-sdk-php": "3.x",
+            Dependencies
+                * Magento Modules
+                    * Magento\\Framework
+                    * Magento\\MediaStorage
+                    * Magento\\Store
+                * Other extensions for Magento
+                    * Bb\\Storage - |ShopBb_StorageMarketplace|
+                * PHP extensions
+                    * N/A
 
+
+|ShopBb_StorageCms|
+-------------------
+
+    * configure Magento_Cms module to use Bb_Storage
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
+
+    .. important::
+
+            Dependencies
+                * Magento Modules
+                    * Magento\\Cms
+                * Other extensions for Magento
+                    * |ShopBb_StorageOverwrites|
+                * PHP extensions
+                    * N/A
+
+
+|ShopBb_StorageCatalog|
+-----------------------
+
+    * configure Magento_Catalog module to use Bb_Storage
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
+
+    .. important::
+
+            Dependencies
+                * Magento Modules
+                    * Magento\\Catalog
+                * Other extensions for Magento
+                    * |ShopBb_StorageOverwrites|
+                * PHP extensions
+                    * N/A
+
+
+|ShopBb_StorageDownloadable|
+----------------------------
+
+    * Allow downloadable files to be saved in a different non-public media storage
+    * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
+
+    .. important::
+
+            Dependencies
+                * Magento Modules
+                    * Magento\\Downloadable
+                * Other extensions for Magento
+                    * |ShopBb_StorageOverwrites|
+                * PHP extensions
+                    * N/A
 
 
 Installation process
 ====================
+
+From source
+-----------
+
+In case you decide to install the extension from source (usually from sourced downloaded from Magento Marketplace) you need to unzip the files inside code directory creating proper subdirectory for module.
+This method is working but for extended support and regular updates use composer installation.
 
 Using composer
 --------------

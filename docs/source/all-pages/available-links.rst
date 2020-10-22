@@ -10,14 +10,40 @@
 
 .. |ShopBb_StorageS3Marketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageS3</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_StorageS3)</a>
 
 
 .. |ShopBb_StorageMarketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_Storage</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Storage)</a>
 
 
 .. |ShopBb_StorageOverwritesMarketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageOverwrites</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_StorageOverwrites)</a>
+
+.. |ShopBb_StorageS3| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_StorageS3)</a>
+
+
+.. |ShopBb_Storage| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Storage)</a>
+
+
+.. |ShopBb_StorageOverwrites| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_StorageOverwrites)</a>
+
+.. |ShopBb_StorageCms| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageCms</a>
+
+.. |ShopBb_StorageCatalog| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageCatalog</a>
+
+.. |ShopBb_StorageDownloadable| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageDownloadable</a>
