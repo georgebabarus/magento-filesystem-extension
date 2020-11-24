@@ -16,16 +16,16 @@ Before starting and purchasing extensions please read carefully the documentatio
 
 Each extension is available in Magento Marketplace individually.
 
-    * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_StorageMarketplace| and the needed filesystem driver eg: |ShopBb_StorageS3Marketplace|
+    * So if you would like to integrate one external filesystem of your choice into a custom feature developed by your team you should buy the base extension |ShopBb_FilesystemMarketplace| and the needed filesystem driver eg: |ShopBb_FilesystemS3Marketplace|
 
-    * If you would like to create a mapping of some of Magento Core directories to an external filesystem service you will need to buy both main extension |ShopBb_StorageMarketplace| and a driver of your choice but also this extension |ShopBb_StorageOverwritesMarketplace|
+    * If you would like to create a mapping of some of Magento Core directories to an external filesystem service you will need to buy both main extension |ShopBb_FilesystemMarketplace| and a driver of your choice but also this extension |ShopBb_FilesystemOverwritesMarketplace|
 
     .. warning::
 
-        |ShopBb_StorageOverwritesMarketplace| is currently on the alpha phase so it will possibly affect some of Magento core features or 3rd party modules.
+        |ShopBb_FilesystemOverwritesMarketplace| is currently on the alpha phase so it will possibly affect some of Magento core features or 3rd party modules.
 
 
-        The following modules Bb_StorageCms Bb_StorageCatalog and Bb_StorageDownloadable are shared packages for |ShopBb_StorageOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
+        The following modules Bb_FilesystemCms Bb_FilesystemCatalog and Bb_FilesystemDownloadable are shared packages for |ShopBb_FilesystemOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
 
         .. important::
 
@@ -37,7 +37,7 @@ Software dependencies
 
 Bellow you will find both the extension commercial name and the module name (in parentheses), short description of the extension and the dependencies within the extension group, dependency on other Magento modules, and also the dependency on PHP extensions or other software dependency.
 
-|ShopBb_Storage|
+|ShopBb_Filesystem|
 ----------------
 
 This is the main module, implementing configuration management and extensibility, shortly, most of the business logic for remote filesystem integration:
@@ -61,7 +61,7 @@ This is the main module, implementing configuration management and extensibility
                     * Imagick https://www.php.net/manual/en/book.imagick.php
                         This extension is used to resize images on demand, and is mandatory because it allow loading images by content and not by path on disk like GD library does.
 
-|ShopBb_StorageS3|
+|ShopBb_FilesystemS3|
 ------------------
 
     * implementation of Amazon S3 like API as a Magento filesystem driver
@@ -74,17 +74,17 @@ This is the main module, implementing configuration management and extensibility
                     * Magento\\MediaStorage
                     * Magento\\Store
                 * Other extensions for Magento
-                    * Bb\\Storage - |ShopBb_StorageMarketplace|
+                    * Bb\\Storage - |ShopBb_FilesystemMarketplace|
                 * Composer package
                     * aws/aws-sdk-php  3.x
                 * PHP extensions
                     * N/A
 
 
-|ShopBb_StorageOverwrites|
+|ShopBb_FilesystemOverwrites|
 --------------------------
 
-    * allows Bb_Storage features on built-in media directories
+    * allows Bb_Filesystem features on built-in media directories
 
     .. important::
 
@@ -94,15 +94,15 @@ This is the main module, implementing configuration management and extensibility
                     * Magento\\MediaStorage
                     * Magento\\Store
                 * Other extensions for Magento
-                    * Bb\\Storage - |ShopBb_StorageMarketplace|
+                    * Bb\\Storage - |ShopBb_FilesystemMarketplace|
                 * PHP extensions
                     * N/A
 
 
-|ShopBb_StorageCms|
+|ShopBb_FilesystemCms|
 -------------------
 
-    * configure Magento_Cms module to use Bb_Storage
+    * configure Magento_Cms module to use Bb_Filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
     .. important::
@@ -111,15 +111,15 @@ This is the main module, implementing configuration management and extensibility
                 * Magento Modules
                     * Magento\\Cms
                 * Other extensions for Magento
-                    * |ShopBb_StorageOverwrites|
+                    * |ShopBb_FilesystemOverwrites|
                 * PHP extensions
                     * N/A
 
 
-|ShopBb_StorageCatalog|
+|ShopBb_FilesystemCatalog|
 -----------------------
 
-    * configure Magento_Catalog module to use Bb_Storage
+    * configure Magento_Catalog module to use Bb_Filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
     .. important::
@@ -128,12 +128,12 @@ This is the main module, implementing configuration management and extensibility
                 * Magento Modules
                     * Magento\\Catalog
                 * Other extensions for Magento
-                    * |ShopBb_StorageOverwrites|
+                    * |ShopBb_FilesystemOverwrites|
                 * PHP extensions
                     * N/A
 
 
-|ShopBb_StorageDownloadable|
+|ShopBb_FilesystemDownloadable|
 ----------------------------
 
     * Allow downloadable files to be saved in a different non-public media storage
@@ -145,7 +145,7 @@ This is the main module, implementing configuration management and extensibility
                 * Magento Modules
                     * Magento\\Downloadable
                 * Other extensions for Magento
-                    * |ShopBb_StorageOverwrites|
+                    * |ShopBb_FilesystemOverwrites|
                 * PHP extensions
                     * N/A
 
@@ -180,23 +180,23 @@ In case you need filesystem integration only for custom development:
     {
         "...",
         "require": {
-            "bb/mage-file-storage": "1.*",
-            "bb/mage-file-storage-s3": "1.*"
+            "bb/filesystem": "1.*",
+            "bb/filesystem-s3": "1.*"
         },
         "..."
     }
 
 
-If you want to have mapping for Magento core directories you should also add Bb_StorageOverwrites module.
+If you want to have mapping for Magento core directories you should also add Bb_FilesystemOverwrites module.
 
 .. code-block:: json
 
     {
         "...",
         "require": {
-            "bb/mage-file-storage": "1.*",
-            "bb/mage-file-storage-s3": "1.*",
-            "bb/mage-file-storage-overwrites": "1.*"
+            "bb/filesystem": "1.*",
+            "bb/filesystem-s3": "1.*",
+            "bb/filesystem-overwrites": "1.*"
         },
         "..."
     }

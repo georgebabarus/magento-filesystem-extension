@@ -10,7 +10,7 @@
 Extensibility
 *************
 
-The extension is exposing extended interface (API) to execute filesystem operations, therefore, the main use-case of |ShopBb_StorageMarketplace| extension is in custom features.
+The extension is exposing extended interface (API) to execute filesystem operations, therefore, the main use-case of |ShopBb_FilesystemMarketplace| extension is in custom features.
 
 Instead of using \\Magento\\Framework\\Filesystem object, you will need to use \\Bb\\Storage\\Framework\\Filesystem defined as API preference for \\Bb\\Storage\\Api\\Filesystem\\ExtendedFilesystemInterface.
 
@@ -21,14 +21,14 @@ Instead of using \\Magento\\Framework\\Filesystem object, you will need to use \
 Extend filesystem to achieve more from your shop
 ================================================
 
-The core module Bb_Storage offers the underlying structure of configuring new directories in the Magento application and mapping them to a remote or local filesystem.
+The core module Bb_Filesystem offers the underlying structure of configuring new directories in the Magento application and mapping them to a remote or local filesystem.
 
 Basically, you have to decide if one directory is stored locally or on a cloud storage service, by creating a configuration mapping in env.php file.
 
 Built with extensibility in mind
 --------------------------------
 
-Any remote filesystem service can work on top of Bb_Storage, as long as an integration driver extension is developed for the particular service.
+Any remote filesystem service can work on top of Bb_Filesystem, as long as an integration driver extension is developed for the particular service.
 
 In case a driver extension is missing from marketplace, it can be developed implementing \\Bb\\Storage\\Api\\Filesystem\\DriverInterface and register it under di.xml.
 
@@ -69,7 +69,7 @@ Create new filesystem driver
 
 After all this step, you can define new directories or create mapping for existing ones using the created driver.
 
-See: bb/mage-file-storage/dev/sample-files/env.php
+See: bb/filesystem/dev/sample-files/env.php
 
 .. code-block:: php
 

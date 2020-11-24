@@ -30,7 +30,7 @@ The configuration consists mainly of 3 components:
 Application configuration
 ==========================
 
-The sample configuration file could be found under the dev directory in ``Bb_Storage`` module:
+The sample configuration file could be found under the dev directory in ``Bb_Filesystem`` module:
 ``dev/sample-files/env.php``
 
 The feature flag for media storage is ``media_storage/enabled``.

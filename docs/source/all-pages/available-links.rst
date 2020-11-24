@@ -8,42 +8,42 @@
    <a href="https://marketplace.magento.com/" target="_blank">Magento Marketplace</a>
 
 
-.. |ShopBb_StorageS3Marketplace| raw:: html
+.. |ShopBb_FilesystemS3Marketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_StorageS3)</a>
-
-
-.. |ShopBb_StorageMarketplace| raw:: html
-
-   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Storage)</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_FilesystemS3)</a>
 
 
-.. |ShopBb_StorageOverwritesMarketplace| raw:: html
+.. |ShopBb_FilesystemMarketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_StorageOverwrites)</a>
-
-.. |ShopBb_StorageS3| raw:: html
-
-   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_StorageS3)</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Filesystem)</a>
 
 
-.. |ShopBb_Storage| raw:: html
+.. |ShopBb_FilesystemOverwritesMarketplace| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Storage)</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_FilesystemOverwrites)</a>
+
+.. |ShopBb_FilesystemS3| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Amazon S3 Integration Filesystem Driver (Bb_FilesystemS3)</a>
 
 
-.. |ShopBb_StorageOverwrites| raw:: html
+.. |ShopBb_Filesystem| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_StorageOverwrites)</a>
+   <a href="https://marketplace.magento.com/" target="_blank">Remote Filesystem Integration (Bb_Filesystem)</a>
 
-.. |ShopBb_StorageCms| raw:: html
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageCms</a>
+.. |ShopBb_FilesystemOverwrites| raw:: html
 
-.. |ShopBb_StorageCatalog| raw:: html
+   <a href="https://marketplace.magento.com/" target="_blank">Multiple Filesystems for Core Modules (Bb_FilesystemOverwrites)</a>
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageCatalog</a>
+.. |ShopBb_FilesystemCms| raw:: html
 
-.. |ShopBb_StorageDownloadable| raw:: html
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_FilesystemCms</a>
 
-   <a href="https://marketplace.magento.com/" target="_blank">Bb_StorageDownloadable</a>
+.. |ShopBb_FilesystemCatalog| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_FilesystemCatalog</a>
+
+.. |ShopBb_FilesystemDownloadable| raw:: html
+
+   <a href="https://marketplace.magento.com/" target="_blank">Bb_FilesystemDownloadable</a>
