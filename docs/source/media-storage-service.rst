@@ -8,11 +8,17 @@
     :keywords lang=en:
         Magento 2, file storage, service, cloud storage, microservice
 
+.. toctree::
+    :caption: Storage Service for Magento 2
+    :maxdepth: 2
+
+    media-storage-service
+
 **********************
 STORAGE SERVICE (M2SS)
 **********************
 
-Storage Service for Magento 2 (M2SS) is a platform as a service (PaaS) project providing file storage integration with cloud object storage services and CDN for Magento 2 stores.
+Storage Service for Magento 2 (M2SS) is a software as a service (SaaS) project providing file storage integration with cloud object storage services and CDN for Magento 2 stores.
 
 Most often Magento media files are served from a content delivery network (CDN) to optimize loading time for these files and reducing network throughput rate on the compute servers. In the given situation there is one open question: Should media files still reside on the compute server's disk? (being regular disk or mounted object storage service). Now consider recent plans for `Magento 2 related headless implementation <https://magento.com/blog/best-practices/future-headless/>`_ and the answer may be clear.
 

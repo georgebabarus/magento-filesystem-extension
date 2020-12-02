@@ -36,12 +36,6 @@ Remote Filesystem Integration for Magento 2
     custom-development/extensibility
 
 .. toctree::
-    :caption: Storage Service for Magento 2
-    :maxdepth: 2
-
-    media-storage-service
-
-.. toctree::
    :caption: Changelog and planning
    :maxdepth: 2
    :hidden:
