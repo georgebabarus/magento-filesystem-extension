@@ -18,6 +18,20 @@
 STORAGE SERVICE (A42SS)
 ***********************
 
+Extracting static files storage component as a microservice - from usecases
+-----------------------------------------------------------
+
+There are few questions that could be raised related to the actual need of replacing the built-in media storage based on local disk with a microservice specialized in web asset management. You can find the answers by reading the architecture section of this documentation.
+
+Having microservice responsible for storage, processing, and delivery of all static content is a happy case that allows developers to focus on scaling compute and storage systems independently.
+
+Also, having a specialized microservice allows improving this area independently. It is clear now, that this may be a big plus because website performance affects customer experience, conversions, and advertisement costs. (lately, advertisers are more and more careful about website performance)
+
+:ref:`Read more about Files Storage as a Microservice for Magento 2. <mss>`
+
+`Subscribe for news related to media storage microservice for Magento 2. <https://magento.asset42.com/remote-filesystem-integration-extensions-for-magento-2>`_
+
+
 Asset42 Storage Service for Magento 2 (A42SS) is a software as a service (SaaS) project providing file storage integration with cloud object storage services and CDN for Magento 2 stores.
 
 Most often Magento media files are served from a content delivery network (CDN) to optimize loading time for these files and reducing network throughput rate on the compute servers. In the given situation there is one open question: Should media files still reside on the compute server's disk? (being regular disk or mounted object storage service). Now consider recent plans for `Magento 2 related headless implementation <https://magento.com/blog/best-practices/future-headless/>`_ and the answer may be clear.
@@ -40,7 +54,7 @@ Subscribe for updates on this topic and information about the release of the nex
 
 Soon we will come with a beta program and you may benefit from attractive enrolment discounts.
 
-`Subscribe here <https://magento.asset42.com/file-storage-service/>`_
+`Subscribe here <https://magento.asset42.com/remote-filesystem-integration-extensions-for-magento-2>`_
 
 
 Architecture

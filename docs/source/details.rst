@@ -35,20 +35,6 @@ With this idea in mind, you can identify some advantages of using it in e-commer
 Use cases
 =========
 
-Extracting static files storage component as a microservice
------------------------------------------------------------
-
-There are few questions that could be raised related to the actual need of replacing the built-in media storage based on local disk with a microservice specialized in web asset management. You can find the answers by reading the architecture section of this documentation.
-
-Having microservice responsible for storage, processing, and delivery of all static content is a happy case that allows developers to focus on scaling compute and storage systems independently.
-
-Also, having a specialized microservice allows improving this area independently. It is clear now, that this may be a big plus because website performance affects customer experience, conversions, and advertisement costs. (lately, advertisers are more and more careful about website performance)
-
-:ref:`Read more about Files Storage as a Microservice for Magento 2. <mss>`
-
-`Subscribe for news related to media storage microservice for Magento 2. <https://magento.asset42.com/file-storage-service>`_
-
-
 On-premises deployment with cloud file storage and CDN in cloud
 ----------------------------------------------------------------
 

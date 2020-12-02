@@ -5,6 +5,7 @@
 
     * Feel free to create new issues for feature requests, new ideas, and improvements or bugs related to these extensions: `On GitHub <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_
 
+    * `Subscribe to the mailing list <https://magento.asset42.com/remote-filesystem-integration-extensions-for-magento-2>`
 
     .. warning::
 
