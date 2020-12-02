@@ -85,13 +85,13 @@ Author
 Mailing list
 ------------
 
-`Subscribe to the mailing list <https://magento.asset42.com/remote-filesystem-integration-extensions-for-magento-2>`
+`Subscribe to the mailing list <https://magento.asset42.com/remote-filesystem-integration-extensions-for-magento-2>`_
 
 You will receive more information and updates on the extensions developed to allow application-level optimal integration of remote filesystems (e.g.: Amazon S3, Azure Blob Storage, Google Cloud Object Storage) into Magento 2 ecosystem:
 
-    release notes
-    new features
-    case studies
-    new ideas
-    feature requests surveys
+    * release notes
+    * new features
+    * case studies
+    * new ideas
+    * feature requests surveys
 
