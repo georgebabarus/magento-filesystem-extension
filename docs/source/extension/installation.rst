@@ -58,8 +58,7 @@ This is the main module, implementing configuration management and extensibility
                 * Other extensions for Magento
                     * N/A
                 * PHP extensions
-                    * Imagick https://www.php.net/manual/en/book.imagick.php
-                        This extension is used to resize images on demand, and is mandatory because it allow loading images by content and not by path on disk like GD library does.
+                    * N/A
 
 |ShopBb_FilesystemS3|
 ------------------
@@ -96,8 +95,8 @@ This is the main module, implementing configuration management and extensibility
                 * Other extensions for Magento
                     * Bb\\Storage - |ShopBb_FilesystemMarketplace|
                 * PHP extensions
-                    * N/A
-
+                    * Imagick https://www.php.net/manual/en/book.imagick.php
+                        This extension is used to resize images on demand, and is mandatory because it allow loading images by content and not by path on disk like GD library does.
 
 |ShopBb_FilesystemCms|
 -------------------
@@ -162,17 +161,6 @@ This method is working but for extended support and regular updates use composer
 Using composer
 --------------
 
-First you have to register composer repository using provided username and password:
-
-.. code-block:: json
-
-    {
-        "repo.asset42.com": {
-            "username": "<username>",
-            "password": "<password>"
-        }
-    }
-
 In case you need filesystem integration only for custom development:
 
 .. code-block:: json
@@ -180,8 +168,8 @@ In case you need filesystem integration only for custom development:
     {
         "...",
         "require": {
-            "bb/filesystem": "1.*",
-            "bb/filesystem-s3": "1.*"
+            "bb/filesystem": "x.*",
+            "bb/filesystem-s3": "x.*"
         },
         "..."
     }
@@ -194,9 +182,9 @@ If you want to have mapping for Magento core directories you should also add bb/
     {
         "...",
         "require": {
-            "bb/filesystem": "1.*",
-            "bb/filesystem-s3": "1.*",
-            "bb/filesystem-overwrites": "1.*"
+            "bb/filesystem": "x.*",
+            "bb/filesystem-s3": "x.*",
+            "bb/filesystem-overwrites": "x.*"
         },
         "..."
     }
@@ -209,6 +197,17 @@ Install new modules
     composer install
     bin/magento setup:upgrade
 
+
+Not mandatory, once you buy the extensions from Magento Marketplace you can request access and register the private composer repository, to have access as soon as possible to new or beta versions:
+
+.. code-block:: json
+
+    {
+        "repo.asset42.com": {
+            "username": "<username>",
+            "password": "<password>"
+        }
+    }
 
 Contribution
 ------------
