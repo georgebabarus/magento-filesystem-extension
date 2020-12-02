@@ -307,7 +307,7 @@ debug                       bool|null               debug mode is doing logs on 
 Configuration summary
 ---------------------
 
-To make more clear the configuration keep in mind the identifier for each component:
+To make more clear the configuration, keep in mind the identifier for each component:
 
     * directory mapping ``filesystem/directory/mapping/<directory_path>``
         * configuration for a given directory - the starting point to identify a <driver_id> for the directory.
