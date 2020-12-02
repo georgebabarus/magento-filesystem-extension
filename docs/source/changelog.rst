@@ -28,7 +28,7 @@ Other Changes
 
     v1.0.0
 
-        Production-ready Bb_Filesystem - 1 September 2020
+        Production-ready bb/filesystem - 1 September 2020
            * new directories could be configured to use new filesystem drivers
 
     v0.2.0

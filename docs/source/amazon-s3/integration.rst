@@ -24,7 +24,7 @@ All news about the extension road-map will be published here.
 S3 Driver Extension for Magento 2
 =================================
 
-Integrating the Amazon S3 filesystem in Magento is available by installing the package bb/filesystem-s3 containing the module named Bb_FilesystemS3.
+Integrating the Amazon S3 filesystem in Magento is available by installing the package bb/filesystem-s3 containing the module named bb/filesystem-s3.
 
 Note that this module depends on the main module bb/filesystem (at an additional cost) to be able to properly configure the connection and define new directories or mapping existing directories.
 

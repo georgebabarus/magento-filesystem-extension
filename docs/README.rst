@@ -19,9 +19,9 @@ What is covered with these extensions?
 
 * Decouple file storage system of compute component and scale them independently.
 
-      * Install all Bb_Filesystem, Bb_FilesystemOverwrites, Bb_FilesystemCms, Bb_FilesystemCatalog, Bb_FilesystemDownloadable modules.
+      * Install all bb/filesystem, bb/filesystem-overwrites, bb/filesystem-cms, bb/filesystem-catalog, bb/filesystem-downloadable modules.
 
-      * Install one of the filesystem driver module eg: Bb_FilesystemS3.
+      * Install one of the filesystem driver module eg: bb/filesystem-s3.
 
         A filesystem driver is a class implementing basic operations (read, write, move, etc.) on files or directories. (see: \\Magento\\Framework\\Filesystem\\DriverInterface)
 
@@ -44,7 +44,7 @@ Currently, there are 6 modules developed for Magento 2 to achieve fully abstract
 
     `Read more about what you should purchase and install for your scenario <https://docs.magento.asset42.com/en/latest/extension/installation.html>`_
 
-* ``Bb_Filesystem`` is the core module, implementing most of the business logic:
+* ``bb/filesystem`` is the core module, implementing most of the business logic:
 
     * directories mapping
     * configure new remote media directories for new modules (e.g.: you want to store some reports in Azure Blob storage, you can configure a new directory for this report)
@@ -52,26 +52,26 @@ Currently, there are 6 modules developed for Magento 2 to achieve fully abstract
     * image resize in-place without sync back to local filesystem (this require having the same configuration for the main directory and the destination of resized files)
     * :term:`OOB` this module can be used in custom modules, none of Magento core features are touched
 
-``Bb_FilesystemOverwrites``
+``bb/filesystem-overwrites``
 
-    * allows Bb_Filesystem features on built-in media directories
+    * allows bb/filesystem features on built-in media directories
 
-``Bb_FilesystemCms``
+``bb/filesystem-cms``
 
-    * configure Magento_Cms module to use Bb_Filesystem
+    * configure Magento_Cms module to use bb/filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
-``Bb_FilesystemCatalog``
+``bb/filesystem-catalog``
 
-    * configure Magento_Catalog module to use Bb_Filesystem
+    * configure Magento_Catalog module to use bb/filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
-``Bb_FilesystemDownloadable``
+``bb/filesystem-downloadable``
 
     * Allow downloadable files to be saved in a different non-public media storage
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
-``Bb_FilesystemS3``
+``bb/filesystem-s3``
 
     * implementation of Amazon S3 like API as a Magento filesystem driver
 

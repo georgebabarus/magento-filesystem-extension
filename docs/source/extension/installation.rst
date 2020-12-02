@@ -25,7 +25,7 @@ Each extension is available in Magento Marketplace individually.
         |ShopBb_FilesystemOverwritesMarketplace| is currently on the alpha phase so it will possibly affect some of Magento core features or 3rd party modules.
 
 
-        The following modules Bb_FilesystemCms Bb_FilesystemCatalog and Bb_FilesystemDownloadable are shared packages for |ShopBb_FilesystemOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
+        The following modules bb/filesystem-cms bb/filesystem-catalog and bb/filesystem-downloadable are shared packages for |ShopBb_FilesystemOverwritesMarketplace| and are offered for free. Those modules consist of code fixes in Magento Core modules where Filesystem drivers are not used accordingly, by using the Filesystem object.
 
         .. important::
 
@@ -84,7 +84,7 @@ This is the main module, implementing configuration management and extensibility
 |ShopBb_FilesystemOverwrites|
 --------------------------
 
-    * allows Bb_Filesystem features on built-in media directories
+    * allows bb/filesystem features on built-in media directories
 
     .. important::
 
@@ -102,7 +102,7 @@ This is the main module, implementing configuration management and extensibility
 |ShopBb_FilesystemCms|
 -------------------
 
-    * configure Magento_Cms module to use Bb_Filesystem
+    * configure Magento_Cms module to use bb/filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
     .. important::
@@ -119,7 +119,7 @@ This is the main module, implementing configuration management and extensibility
 |ShopBb_FilesystemCatalog|
 -----------------------
 
-    * configure Magento_Catalog module to use Bb_Filesystem
+    * configure Magento_Catalog module to use bb/filesystem
     * fix some weak points on Magento core components that are not using driver object to execute basic actions on files
 
     .. important::
@@ -187,7 +187,7 @@ In case you need filesystem integration only for custom development:
     }
 
 
-If you want to have mapping for Magento core directories you should also add Bb_FilesystemOverwrites module.
+If you want to have mapping for Magento core directories you should also add bb/filesystem-overwrites module.
 
 .. code-block:: json
 

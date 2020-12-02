@@ -86,7 +86,7 @@ Product file storage
 
 Images in the gallery, product description images, or other product-related photos will be stored at upload time in the cloud and delivered from there each time is needed in frontend.
 
-Downloadable product attachments are supported by installing Bb_FilesystemDownloadable.
+Downloadable product attachments are supported by installing bb/filesystem-downloadable.
 
 .. image:: _static/features/product-gallery.png
   :height: 300px
@@ -185,9 +185,9 @@ Overwriting the Magento media location (or another core directory) may cause som
 
 In some cases, operations on files or directories are performed directly with PHP functions, or \\Magento\\Framework\\Filesystem\\DriverInterface objects are obtained directly from ObjectManager. Obtaining a driver object from the filesystem object will avoid this type of problem.
 
-Most of the inconsistencies from Magento core modules are fixed in Bb_FilesystemCms, Bb_FilesystemCatalog, Bb_FilesystemDownloadable modules, and is part of the plan to include these improvements in the Magento Community project.
+Most of the inconsistencies from Magento core modules are fixed in bb/filesystem-cms, bb/filesystem-catalog, bb/filesystem-downloadable modules, and is part of the plan to include these improvements in the Magento Community project.
 
-However overwriting the Magento core directories is not mandatory, because you can configure new directories for custom implementation with the base module Bb_Filesystem and the module implementing the driver of your choice eg: Bb_FilesystemS3.
+However overwriting the Magento core directories is not mandatory, because you can configure new directories for custom implementation with the base module bb/filesystem and the module implementing the driver of your choice eg: bb/filesystem-s3.
 
 This module is not yet compatible with New Magento Media Gallery.
 
@@ -203,10 +203,10 @@ Latest releases
         * Feel free to create new issues for feature requests, questions, new ideas, and improvements or bugs related to these extensions: `On GitHub <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_
 
     1.0.0 - proof of concept
-          - Bb_Filesystem could be installed independently and will allow custom/new directories for new modules
-          - To overwrite the Magento storage following modules should be installed: Bb_FilesystemOverwrite, Bb_FilesystemCms, Bb_FilesystemCatalog, Bb_FilesystemDownloadable
+          - bb/filesystem could be installed independently and will allow custom/new directories for new modules
+          - To overwrite the Magento storage following modules should be installed: bb/filesystemOverwrite, bb/filesystem-cms, bb/filesystem-catalog, bb/filesystem-downloadable
           - For now, when you create a mapping for a subdirectory, you need to create a configuration for all others subdirectories
-          - Available driver Bb_FilesystemS3 for Amazon S3 like integration. More drivers will be published soon depending on demands. Please request new drivers `on GitHub <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_.
+          - Available driver bb/filesystem-s3 for Amazon S3 like integration. More drivers will be published soon depending on demands. Please request new drivers `on GitHub <https://github.com/georgebabarus/magento-filesystem-extension/issues>`_.
 
 Useful links
 =============

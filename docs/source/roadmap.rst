@@ -17,8 +17,8 @@ Roadmap
 
     23 December 2020
 
-        * publish Bb_FilesystemOverwrites the module in charge of mapping existing directories in Magento to Remote file systems
-        * break the dependency between Bb_FilesystemCatalog, Bb_FilesystemCms and Bb_FilesystemDownloadable modules in order to allow independent installation and usage.
+        * publish bb/filesystem-overwrites the module in charge of mapping existing directories in Magento to Remote file systems
+        * break the dependency between bb/filesystem-catalog, bb/filesystem-cms and bb/filesystem-downloadable modules in order to allow independent installation and usage.
 
             * most probably the media directory will be separated by the type of the module using it
             * multiple frontend URLs based on media storage of subdirectory
@@ -40,7 +40,7 @@ Roadmap
 
         * integrate all refactoring and fixes into the Magento Community project.
 
-            * Here we are talking of places where the filesystem component is not properly used in Magento Core: Bb_FilesystemCatalog, Bb_FilesystemCms and Bb_FilesystemDownloadable
+            * Here we are talking of places where the filesystem component is not properly used in Magento Core: bb/filesystem-catalog, bb/filesystem-cms and bb/filesystem-downloadable
 
 Future work
 =================
