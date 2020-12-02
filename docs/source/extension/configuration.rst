@@ -14,13 +14,13 @@ Configuration
 
 For now, the available configuration is inserted into the deployment config file /etc/env.php since there are deployment related configs like database connection and are mandatory.
 
-The configuration consists mainly of 3 components:
+The configuration consists mainly of 3 essential components:
 
-    * ``driver_configs`` which are configurations related to connection to the filesystem provider
+    * ``driver`` which are configurations related to connection to the filesystem provider
 
-    * ``directories -> mapping`` - in this path you will be able to define new directories paths or overwrite the existing ones under ./pub directory
+    * ``directory -> mapping`` - in this path you will be able to define new directories paths or overwrite the existing ones under ./pub directory
 
-    * ``directories -> configs`` - in this path you can configure additional settings related to specified directory and driver. (e.g.: custom endpoint delivery path)
+    * ``directory -> config`` - in this path you can configure additional settings related to specified directory and driver. (e.g.: custom endpoint delivery path)
 
 
 .. include:: ./../messages.rst
@@ -33,52 +33,52 @@ Application configuration
 The sample configuration file could be found under the dev directory in ``bb/filesystem`` module:
 ``dev/sample-files/env.php``
 
-The feature flag for media storage is ``media_storage/enabled``.
+The feature flag for extended filesystem component is ``filesystem/enabled``.
 
 .. code-block:: php
 
     [
-        'media_storage' => [
+        'filesystem' => [
             'enabled'        => true,
-            'directories'    => [
+            'directory'    => [
                 'mapping' => [
                     'media' => [
-                        'main_driver'    => 's3_lo',
-                        'driver_configs' => [
+                        'default_driver'    => 's3_lo',
+                        'available_drivers' => [
                             'file' => 'file',
                             's3'   => 's3_lo'
                         ],
-                        'directories'    => [
+                        'directory'    => [
                             'catalog'         => [
-                                'main_driver'    => 's3_lo',
-                                'driver_configs' => [
+                                'default_driver'    => 's3_lo',
+                                'available_drivers' => [
                                     'file' => 'file',
                                     's3'   => 's3_lo'
                                 ],
-                                'directories'    => [
+                                'directory'    => [
                                     'product/cache' => [
-                                        'main_driver' => 's3_lo'
+                                        'default_driver' => 's3_lo'
                                     ]
                                 ]
                             ],
                             'downloadable'    => [
-                                'main_driver'    => 's3_aws',
-                                'driver_configs' => [
+                                'default_driver'    => 's3_aws',
+                                'available_drivers' => [
                                     'file' => 'file',
                                     's3'   => 's3_lo'
                                 ]
                             ],
                             'invalid-mapping' => [
-                                'main_driver' => 'invalid-mapping',
+                                'default_driver' => 'invalid-mapping',
                             ],
                             'other'           => [
-                                'main_driver' => 'file'
+                                'default_driver' => 'file'
                             ],
                             'empty-mapping'   => []
                         ]
                     ]
                 ],
-                'configs' => [
+                'config' => [
                     'media'                       => [
                         's3_lo' => [
                             'directory_prefix'   => 'media',
@@ -135,7 +135,7 @@ The feature flag for media storage is ``media_storage/enabled``.
                     ]
                 ]
             ],
-            'driver_configs' => [
+            'driver' => [
                 's3_do'  => [
                     'driver_code' => 's3',
                     'stream_code' => 's3m',
@@ -195,20 +195,21 @@ Directory mapping link a specific path (e.g.: ``media/download`` from the below 
 .. code-block:: php
 
     [
-        'media_storage' => [
+        'filesystem' => [
             'enabled'        => true,
-            'directories'    => [
+            'directory'    => [
                 'mapping' => [
-                    'media' => [
-                        'main_driver'    => 's3_lo',
-                        'driver_configs' => [
+                    '<directory_path>' => [
+                        'default_driver'    => '<driver_id>',
+                        'available_drivers' => [
+                            '<driver_code>' => '<driver_id>',
                             'file' => 'file',
                             's3'   => 's3_lo'
                         ],
-                        'directories'     => [ // this are subdirectories
+                        'directory'     => [ // this are subdirectories
                             'downloadable'    => [
-                                'main_driver' => 's3_private', // other driver config identifier here
-                                'driver_configs'     => [
+                                'default_driver' => 's3_private', // other driver config identifier here
+                                'available_drivers'     => [
                                     'file' => 'file',
                                     'bbS3' => 's3_private'
                                 ]
@@ -223,19 +224,19 @@ Directory mapping link a specific path (e.g.: ``media/download`` from the below 
 =========================  =======================  ======================================================
 Field                      Data type                Description
 =========================  =======================  ======================================================
-main_driver                 string                  is the main driver used for the directory, this will be always used unless, is explicitly specified to use another one form the bellow available driver configs.
-driver_configs              array|null              Other available drivers and driver_configs for a specific directory. Consist of mapping of diver code as the key to an available driver config under storage_config/driver_configs as value.
+default_driver              string                  is the main driver used for the directory, this will be always used unless, is explicitly specified to use another one form the bellow available driver configs.
+available_drivers           array|null              Other available drivers and available_drivers for a specific directory. Consist of mapping of diver code as the key to an available driver config under filesystem/available_drivers as value.
 =========================  =======================  ======================================================
 
-Additional directory configuration is located under ``media_storage/directories/configs``. These configs are located by directory path and driver code.
+Additional directory configuration for a given driver is located under ``filesystem/directory/config/<directory_path>/<driver_id>``. These configs are located by directory path and driver code.
 
 .. code-block:: php
 
-        'media_storage' => [
-            'directories' => [
-                'configs' => [
-                    'media'                       => [
-                        's3_public' => [
+        'filesystem' => [
+            'directory' => [
+                'config' => [
+                    '<directory_path>' => [
+                        '<driver_id>' => [
                             'directory_prefix'   => 'media',
                             'reverse_proxy_path' => 'lo-proxy',
                             'overwrite_base_url' => true,
@@ -269,9 +270,9 @@ Connection details may be different depending on the Driver used for the service
 .. code-block:: php
 
     [
-        'media_storage' => [
-            'driver_configs' => [
-                's3_do'  => [
+        'filesystem' => [
+            'driver' => [
+                '<driver_id>'  => [
                     'driver_code' => 's3', // Driver code registered by driver nodule
                     'stream_code' => 's3m', // this is a stream code, some modules need it. use 3 letters code unique per connection
                     'region'      => 'fra1',
@@ -301,6 +302,23 @@ credentials                 array|null              credentials consist of key a
 endpoint                    array|null              origin endpoint is the URL used for API calls with credentials, frontend endpoint is used to serve public
 debug                       bool|null               debug mode is doing logs on requests made to storage service
 =========================  =======================  ======================================================
+
+
+Configuration summary
+---------------------
+
+To make more clear the configuration keep in mind the identifier for each component:
+
+    * directory mapping ``filesystem/directory/mapping/<directory_path>``
+        * configuration for a given directory - the starting point to identify a <driver_id> for the directory.
+        * In context when the use_mapping is true it will use the default_driver, but if it is false it will use the <driver_code> passed at the runtime to identify the <driver_id> inside available_drivers: ['<driver_code>' => '<driver_id>']
+        * this driver id is used in next steps to gather more configurations for directory
+        * sub-configuration available ``filesystem/directory/mapping/<directory_path>/directory/<subdirectory_path>`` with same description. Longest path possible is used.
+    * directory config ``filesystem/directory/config/<directory_path>/<driver_id>``
+        * more configuration for directory-driver pair
+    * driver configuration ``filesystem/driver/<driver_id>``
+        * has a <driver_id> which is unique at the configuration level.
+        * Inside this configuration is defined the <driver_code> which is important to identify the driver class in the driver pool.
 
 
 Web-server configuration
