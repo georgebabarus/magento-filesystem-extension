@@ -1,0 +1,38 @@
+{
+    "name": "a42/magento-filesystem-extension-docs",
+    "version": "1.0.0",
+    "description": "",
+    "type": "magento2-module",
+    "license": [
+        "ADSL"
+    ],
+    "homepage": "https://docs.asset42.com/en/latest/",
+    "authors": [
+        {
+            "name": "George Babarus",
+            "email": "george.babarus+42@gmail.com",
+            "homepage": "https://george.babarus.ro/"
+        }
+    ],
+    "keywords": [
+        "magento"
+    ],
+    "require": {
+        "php": "~7.1.3||~7.2.0||~7.3.0||~7.4.0",
+        "composer-runtime-api": "^2.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "A42ss\\Config\\": ""
+        }
+    },
+    "repositories": {
+      
+    },
+    "minimum-stability": "dev"
+}
